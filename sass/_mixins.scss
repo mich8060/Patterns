@@ -1,0 +1,77 @@
+@import 'styles';
+
+@mixin breakpoint($point) {
+  	@if $point == mobile {
+    	@media only screen and (min-width: 0px) and (max-width: 599px) { @content; }
+  	}
+	@else if $point == tablet {
+		@media only screen and (min-width: 600px) and (max-width: 1100px) { @content; }
+	}
+	@else if $point == portrait {
+		@media only screen and (min-width: 600px) and (max-width: 899px) { @content; }
+	}
+	@else if $point == landscape {
+		@media only screen and (min-width: 900px) and (max-width: 1100px) { @content; }
+	}
+	@else if $point == desktop {
+		@media only screen and (min-width: 1101px) and (max-width:1399px) { @content; }
+	}
+	@else if $point == huge {
+		@media only screen and (min-width: 1400px) { @content; }
+	}
+	@else if $point == retina {
+		@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { @content; }
+	}
+}
+
+@mixin aspect-ratio($width, $height) {
+  	position: relative;
+  	&:before {
+    	display: block;
+    	content: "";
+    	width: 100%;
+    	padding-top: ($height / $width) * 100%;
+  	}
+
+  	> .content {
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    	right: 0;
+    	bottom: 0;
+  	}
+
+	> .content-centered {
+		position:absolute;
+		top:50%;
+		left:50%;
+		z-index:99;
+		
+		@include prefix("transform",translate(-50%,-50%));
+	}
+}
+
+/* Cross Browser Inline-Block */
+@mixin inline-block {
+  	display: inline-block; /* For normal, healthy browsers */
+ 
+  	* html & { /* for IE6 */
+    	display: inline;
+  	}
+ 
+  	*+html & { /* for IE7 */
+    	display: inline;
+  	}
+}
+
+@mixin ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+  	white-space: nowrap;
+}
+
+@mixin prefix($property, $value) {
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$property}: #{$value};
+  }
+}

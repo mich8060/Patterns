@@ -1,0 +1,400 @@
+body {
+	&.menu-open {
+		overflow:hidden;
+
+		header,
+		main {
+			@include prefix("transform", translate3d(280px,0,0));
+		}
+
+		overlay {
+			left:280px;
+			opacity:1;
+			visibility:visible;
+		}
+	}
+}
+
+dropdown {
+	border-top:solid 1px colors(gray-4);
+	display:block;
+	left:0;
+	padding:40px 0;
+	position:absolute;
+	opacity:0;
+	right:0;
+	text-align:left;
+	visibility:hidden;
+	
+	@include prefix("transition", opacity 0.3s ease 0.4s);
+	
+	&.active {
+		opacity:1;
+		visibility:visible;	
+	}
+	
+	.col-lg-12 {
+		a {
+			@include inline-block;
+			padding:5px 10px;
+		}
+	}
+	
+	&.activities {
+		.col-lg-2 {
+			a {
+				background-size:cover;
+				position:relative;
+				
+				&:after {
+				    color:colors(white);
+					content:attr(data);
+					display:block;
+				    font-size:16px;
+				    left:50%;
+				    position:absolute;
+				    top:50%;
+				    white-space:nowrap;
+				
+					@include prefix("transform", translate(-50%,-50%));
+				}
+				
+				&:before {
+					background:rgba(34,34,34,0.4);
+				    content:"";
+				    padding-top: 50%;
+				    display: block;
+				    margin:-3px 0;
+				}
+			}
+		}
+	}
+	
+	&.collections {
+		text-align:center;
+		
+		.collections {
+			&-headline {
+				color:colors(black);
+			}	
+			
+			&-subheadline {
+				color:colors(gray-2);
+			}
+		}
+		
+		img {
+			margin-bottom:10px;
+		}
+	}
+	
+	strong {
+		a {
+			color:colors(black);
+		}
+	}
+	
+	a {
+		display:block;
+		padding:3px 0;
+	}
+}
+
+footer {
+	color:colors(black);
+	background:colors(white);
+	clear:both;
+	
+	.footer {
+		
+		&-app {
+			padding:50px 0;
+			
+			a {
+				padding:0;
+			}
+			
+			img {
+				border:solid 1px colors(gray-4);
+				float:left;
+				line-height:14px;
+				margin:-10px 10px 0 0;
+				padding:5px;
+				width:50px;
+				
+				@include prefix("border-radius", 12px);
+			}
+		}
+		&-cap {
+			border-top:solid 1px colors(gray-4);
+			color:colors(gray-3);
+			font-size:14px;
+			line-height:16px;
+			padding:10px;
+			text-align:center;
+			
+			a {
+				@include inline-block;
+			}
+		}
+		
+		&-pillars {
+			background:colors(white);
+			border-bottom:solid 1px colors(gray-4);
+			border-top:solid 1px colors(gray-4);
+			padding:20px 0;
+			
+			.col-lg-4 {
+				&:last-child {
+					a {
+						border-right:none;
+					}
+				}
+			}
+			
+			a {
+				border-right:solid 1px colors(gray-4);
+				text-align:center;
+				
+
+
+				&:hover {
+					color:colors(black);
+				}
+			}
+		}
+		
+		&-social {
+			a {
+				color:colors(black);
+				@include inline-block;
+				padding:0 5px;
+			}
+		}
+	}
+	
+	a {
+		color:colors(gray-1);
+		display:block;
+		padding:5px 0;
+	}
+}
+
+header {
+	background:colors(white);
+	border-bottom:solid 1px colors(gray-4);
+	border-top:solid 4px colors(black);
+	margin-bottom:41px;
+	position:relative;
+	z-index:999;
+	
+	@include prefix("transition", transform 0.3s ease);
+	
+	@include breakpoint(mobile) {
+		margin-bottom:0;
+	}
+	@include breakpoint(tablet) {
+		margin-bottom:0;
+	}
+}
+
+main {
+	min-height:800px;
+	position:relative;
+	@include prefix("transition", transform 0.3s ease);
+	
+	@include breakpoint(portrait){
+		min-height:1024px;
+	}
+}
+
+menu {
+	background:colors(gray-4);
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	width:280px;
+	
+	.menu {
+		
+		&-contact {
+			background:colors(white);
+			padding:30px;
+			text-align:center;
+			
+			.btn {
+				margin-left:5px;
+				margin-right:5px;
+			}
+		}
+		
+		&-navigation {
+			&.list {
+				a {
+					background:colors(white);
+					border:solid 1px colors(gray-4);
+					color:colors(black);
+					display:block;
+					padding:10px 30px;	
+
+					&:after {
+						@include inline-block;
+						font-family: 'entypo', sans-serif;
+						content:"\E75E";
+						float:right;
+					}
+				}	
+			}
+			
+			a {
+				.collections {
+					&-title {
+						background:colors(white);
+						color:colors(black);
+						font-size:16px;
+						line-height:16px;
+						margin-bottom:20px;
+						padding:10px 30px;
+					}
+					
+					&-headline,
+					&-subheadline { 
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+					
+					&-subheadline {
+						color:colors(gray-1);
+					}
+				}
+
+			}
+		}
+		
+		&-toolbar {
+			background:colors(white);
+			border-bottom:solid 1px colors(gray-4);
+			padding:10px 20px 10px 30px; 
+			text-align:right;
+			
+			&.subsection {
+				background:transparent;
+				border:none;
+				font-weight:bold;
+				padding:10px 5px;
+				text-align:left;
+				
+				a {
+					color:colors(black);	
+				}
+			}
+			
+			.avatar {
+				margin-left:10px;
+			}
+		}
+		
+		&-window {
+			position:absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			overflow:scroll; 
+			overflow-y: scroll; 
+			overflow-x: hidden; 
+			@include prefix("overflow-scrolling",touch);
+			@include prefix("transform", translate3d(100%,0,0));
+			@include prefix("transition", transform 0.3s ease);
+			
+			&.active {
+				@include prefix("transform", translate3d(0,0,0));
+			}
+		}
+	}
+}
+
+nav {
+	background:colors(white);
+	border-bottom:solid 1px colors(gray-4);
+	font-size:16px;
+	left:0;
+	margin-top:-41px;
+	position:absolute;
+	right:0;
+	z-index:999;
+	
+	@include breakpoint(mobile) {
+		display:none;
+	}
+	
+	@include breakpoint(portrait) {
+		display:none;
+	}
+	
+	@include breakpoint(landscape){
+		margin-top:0;
+	}
+	
+	ul {
+		border-left:solid 1px colors(gray-4);
+		display:table;
+		list-style-type:none;
+		margin:0 auto;
+		max-width:1400px;
+		padding:0;
+		table-layout: fixed;
+		width:100%;
+		
+		li {
+			border-right:solid 1px colors(gray-4);
+			display:table-cell;	
+			list-style-type:none;
+			
+			&:hover {
+				.primary {
+					border-bottom:solid 1px colors(white);
+					color:colors(black);
+					position: relative;
+					z-index: 9;
+				}
+			}
+			
+			.primary {
+				border-bottom:solid 1px colors(gray-4);
+				display:block;
+				margin-bottom:-1px;
+				padding:10px;
+				text-align:center;
+			}
+		}
+	}
+
+}
+
+overlay {
+	background:rgba(colors(black),0.5);
+	bottom:0;
+	display:block;
+	left:0;
+	right:0;
+	opacity:0;
+	position:fixed;
+	top:0;
+	visibility:hidden;
+	z-index:99999;
+	
+	@include prefix("transition", all 0.3s ease);
+}
+
+textbanner {
+	background:colors(gray-4);
+	color:colors(gray-2);
+	display:block;
+	font-size:16px;
+	padding:6px;
+	text-align:center;
+	
+}

@@ -1,0 +1,195 @@
+@import 'styles';
+
+@font-face {font-family: 'simple-line-icons';font-weight:normal;font-style:normal;src:url('../fonts/Simple-Line-Icons.eot?v=2.2.2');src:url('../fonts/Simple-Line-Icons.eot?#iefix&v=2.2.2') format('embedded-opentype'),url('../fonts/Simple-Line-Icons.ttf?v=2.2.2') format('truetype'),url('../fonts/Simple-Line-Icons.woff2?v=2.2.2') format('woff2'),url('../fonts/Simple-Line-Icons.woff?v=2.2.2') format('woff'),url('../fonts/Simple-Line-Icons.svg?v=2.2.2#simple-line-icons') format('svg');}
+
+main {
+	padding-top:66px;
+}
+
+iframe {
+	background:colors(white);
+	border:solid 1px colors(gray-3);
+	margin:0 auto;
+	@include prefix('transition', all 0.3s ease);
+}
+
+iframe::-webkit-scrollbar {  
+  display: none;
+}
+
+.iphone-5-iframe iframe {
+	width:320px;
+	height:568px;
+}
+
+.iphone-6-iframe iframe {
+	width:375px;
+	height:667px;
+}
+
+.iphone-6-Plus-iframe iframe {
+	height:736px;
+	width:414px;
+}
+
+.ipad-iframe iframe {
+	height:1024px;
+	width:768px;
+}
+
+.iPad-Landscape-iframe iframe {
+	height:768px;
+	width:1024px;
+}
+
+.Desktop-iframe iframe {
+	height:800px;
+	width:1280px;
+}
+
+.resizer {
+	&-toolbar {
+		background:colors(white);
+		border-bottom:solid 1px colors(gray-3);
+		left:0;
+		padding:10px;
+		position:fixed;
+		right:0;
+		top:0;
+		@include prefix('box-sizing',border-box);
+	}
+	
+	&-icon {
+
+		&:before,
+		&:after {
+			content:"";
+			@include inline-block;
+			font-family: 'simple-line-icons';
+			font-size:18px;
+		  	font-style: normal;
+		  	font-variant: normal;
+		  	font-weight: normal;
+			height:18px;
+			line-height:18px;
+			overflow:hidden;
+			position:relative;
+			speak: none;
+			text-align:center;
+			top:4px;
+			width:18px;
+		  	text-transform: none;
+		}
+
+		&.embedded {
+			font-family:'Entypo';
+
+			&:before {
+				display:none;
+			}
+		}
+
+		&[type="cart"]{ &:after{ display:none; } &:before{ content:"\E73D"; }}
+		&[type="chat"]{ &:after{ display:none; } &:before{ content:"\E720"; }}
+		&[type="close"]{ 
+			&:after { background:colors(white); height:18px; width:1px; @include prefix("transform",rotate(-45deg)); }
+			&:before{ background:colors(white); height:18px; left:1px; width:1px; @include prefix("transform",rotate(45deg)); }
+		}
+		&[type="doc"]{ &:after{ display:none; } &:before{ content: "\e085"; }}
+		&[type="globe"]{ &:after{ display:none; } &:before{ content: "\e037"; }}
+		&[type="menu"]{ &:after{ display:none; } &:before{ content: "\e601"; }}
+		&[type="mobile"]{ &:after{ display:none; } &:before{ content:"\1F4F1"; }}
+		&[type="search"]{ &:after{ display:none; } &:before{ content:'\E090'; }}
+		&[type="screen-smartphone"]{ &:after{ display:none; } &:before{ content: "\e010"; }}
+		&[type="screen-desktop"]{ &:after{ display:none; } &:before{ content: "\e011"; }}
+		&[type="chevron-left"]{ &:after{ display:none; } &:before{ content:"\E75D"; top:5px; }}
+	}
+	
+	&-ruler {
+		background:colors(white);
+		border-bottom:solid 1px colors(gray-3);
+		font-size:14px;
+		line-height:16px;
+		height:15px;
+		left:0;
+		position:fixed;
+		right:0;
+		text-align:center;
+		top:51px;
+		
+		&-size {
+			color:transparent;
+			cursor:pointer;
+			border-left:solid 1px colors(gray-3);
+			border-right:solid 1px colors(gray-3);
+			height:15px;
+			left:50%;
+			position:absolute;
+			top:0;
+			@include prefix("transform", translate(-50%,0));
+			
+			&.active {
+				background:colors(gray-4);
+				color:colors(black);
+			}
+			
+			&:before {
+				color:colors(gray-3);
+				content:attr(data);
+				display:block;
+				position:absolute;
+				left:5px;
+				top:0;
+			}
+			
+			&:after {
+				color:colors(gray-3);
+				content:attr(data);
+				display:block;
+				position:absolute;
+				right:5px;
+				top:0;
+			}
+			
+			&:hover {
+				background:colors(gray-4);
+				color:colors(black);
+			}
+		}
+	}
+	
+	&-search {
+		padding:5px 0;
+		position:absolute;
+		width:600px;
+		top:-10px;
+		left:50%;
+		@include prefix("transform", translate(-50%,0));
+		
+		input[type="search"]{
+			border:none;
+			padding-left:15px;
+			
+			&:focus {
+				background:transparent;
+			}
+		}
+		
+		.resizer-icon {
+			position:absolute;
+			top:10px;
+		}
+	}
+	
+	&-utility {
+		position:absolute;
+		right:0;
+		top:0;
+		
+		a {
+			@include inline-block;
+			margin:-10px 0 0 0;
+			padding:10px;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+/* Reset */
+body,html,div,blockquote,img,label,p,h1,h2,h3,h4,h5,h6,pre,ul,ol,li,dialog,dl,dt,dd,form,a,fieldset,input,th,td,header,footer,article,section,nav,menu,main,hgroup,aside{border:0;margin:0;outline:0;padding:0;list-style-type:none}
+:focus{outline:0}a:link,a:active,a:hover,a:visited{text-decoration:none}
+
+/* Native Elements */
+img{display:block;margin:0;padding:0;width:100%;-ms-interpolation-mode:bicubic;}
+
+/* HTML5 */
+article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,site{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+audio:not([controls]){display:none}
+
+/* Debug */
+.debug { outline:solid 1px red; }
+.debug-background { background:rgba(255, 0, 0, 0.2) !important; }

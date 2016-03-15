@@ -1,0 +1,208 @@
+@import 'mixins';
+
+.mobile, .tablet { display:none !important; }
+
+.desktop, .huge { display:block; }
+
+@include breakpoint(mobile) {
+	.mobile {
+		display:block !important;
+	}
+	
+	.desktop, .huge {
+		display:none !important;
+		outline:solid 1px red;
+	}
+}
+
+.portrait,
+.landscape {
+	display:none;
+}
+
+@include breakpoint(tablet) {
+	.tablet {
+		display:block;
+	}
+}
+
+@include breakpoint(portrait) {
+	.portrait {
+		display:block;
+	}
+}
+
+@include breakpoint(landscape) {
+	.landscape {
+		display:block;
+	}
+}
+
+.float {
+	&.left { float:left; }
+	&.right { float:right; }
+}
+
+/* Helps keep content together when placed next to a floating object - Never define a height with this class */
+.flow { overflow:hidden; }
+
+/* Adds scrolling functionality on touch devices to overflowing elements */
+.touchscroll { overflow:scroll; overflow-y: scroll; overflow-x: hidden; @include prefix("overflow-scrolling",touch); }
+.touchswipe { overflow:scroll; overflow-y: hidden; overflow-x: scroll; @include prefix("overflow-scrolling",touch); }
+
+/* Basic Hide/Show */
+.hide { opacity:0; visibility:hidden; }
+
+/* Screen Positioning */
+.fixed { position:fixed; }
+.absolute { position:absolute; }
+
+.bg {
+	&-white { background:colors(white); }
+	&-gray-1 { background:colors(gray-1); }
+	&-gray-2 { background:colors(gray-2); }
+	&-gray-3 { background:colors(gray-3); }
+	&-gray-4 { background:colors(gray-4); }
+	&-gray-5 { background:colors(gray-5); }
+}
+
+.custom-scroll {
+	&::-webkit-scrollbar {
+	    width: 15px;
+	    padding: 5px 10px;
+	}
+
+	&::-webkit-scrollbar-button {
+	    background-color: #f00;
+	}
+
+	&::-webkit-scrollbar-corner {
+	    display: block;
+	    width: 15px;
+	    height: 15px;
+	    background: 0 0;
+	    background-repeat: no-repeat;
+	}
+
+	&::-webkit-scrollbar-corner {
+	    background-color: #fff;
+	}
+
+	&::-webkit-scrollbar-thumb {
+	    background-color:colors(black);
+	    -webkit-background-clip: content-box;
+	    -webkit-background-clip: content;
+	    -moz-background-clip: content;
+	    background-clip: content-box;
+	    border: 5px solid transparent;
+	    -webkit-border-radius: 15px;
+	    border-radius: 15px;
+		@include prefix("transition", background 0.3s ease);
+	}
+
+	&::-webkit-scrollbar-track {
+		background:transparent;
+		background-size:15px 15px;
+	}
+}
+
+.sticky {
+	
+	&-strict {
+		&.active {
+			position:fixed;
+			top:0;
+			z-index:99999;
+		}
+	}
+	
+	&.active {
+		position:fixed;
+		top:0;
+		left:0;
+		right:0;
+		z-index:99999;
+	}
+}
+
+.fixed,
+.absolute {
+	&.top {
+		&.left { left:0; top:0; }
+		&.center { left:50%; top:0; @include prefix("transform",translate3d(-50%,0,0)); }
+		&.right { right:0; top:0; }
+	}
+	
+	&.middle {
+		&.left { left:0%; top:50%; @include prefix("transform",translate3d(0,-50%,0)); }
+		&.center { left:50%; top:50%; @include prefix("transform",translate3d(-50%,-50%,0)); }
+		&.right { right:0%; top:50%; @include prefix("transform",translate3d(0,-50%,0)); }		
+	}
+	
+	&.bottom {
+		&.left { left:0; bottom:0; }
+		&.center { left:50%; bottom:0; @include prefix("transform",translate3d(-50%,0,0)); }
+		&.right { right:0; bottom:0; }		
+	}
+}
+
+/* Cross Browsers Inline Block */
+.inline-block { @include inline-block; }
+
+
+
+.debug {
+	.editable {
+		&:hover {
+			background:rgba(0,174,239,0.05);
+		}
+		
+		&:focus {
+			background:rgba(0,174,239,0.05);
+		}
+	}
+}
+
+/* Defining Set Levels of Depth */
+.level-6 { z-index:999999; }
+.level-5 { z-index:99999; }
+.level-4 { z-index:9999; }
+.level-3 { z-index:999; }
+.level-2 { z-index:99; }
+.level-1 { z-index:9; }
+
+/* General Text Alignment */
+.text-center { text-align:center; }
+.text-left { text-align:left; }
+.text-right { text-align:right; }
+
+/* Text Transformations */
+.upper { text-transform:uppercase; }
+.lower { text-transform:lowercase; }
+
+/* Rotate Element */
+.rotate-45 { @include prefix('transform',rotate(45deg)); }
+.rotate-90 { @include prefix('transform',rotate(90deg)); }
+.rotate-180 { @include prefix('transform',rotate(180deg)); }
+
+.resize { border:solid 1px gray(4); cursor:col-resize; resize: horizontal; }
+
+.width5  { width:5%; }
+.width10 { width:10%; }
+.width15 { width:15%; }
+.width20 { width:20%; }
+.width25 { width:25%; }
+.width30 { width:30%; }
+.width35 { width:35%; }
+.width40 { width:40%; }
+.width45 { width:45%; }
+.width50 { width:50%; }
+.width55 { width:55%; }
+.width60 { width:60%; }
+.width65 { width:65%; }
+.width70 { width:70%; }
+.width75 { width:75%; }
+.width80 { width:80%; }
+.width85 { width:85%; }
+.width90 { width:90%; }
+.width95 { width:95%; }
