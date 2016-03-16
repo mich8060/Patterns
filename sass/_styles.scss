@@ -188,14 +188,18 @@ p {
 		
 	}
 
-	&.small {
-	  font-size: 16px;
-	  line-height: 20px;
+	&.sm {
+		color:colors(gray-1);
+	  	font-size: 16px;
+	  	line-height: 20px;
+		margin:10px 0;
 	}
 	
-	&.mouse {
-	  font-size: 12px;
-	  line-height: 15px;
+	&.xs {
+		color:colors(gray-2);
+	  	font-size: 13px;
+	  	line-height: 14px;
+		margin:5px 0;
 	}
 	
 	&:before,

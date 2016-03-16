@@ -8,6 +8,80 @@
 <link rel="stylesheet" href="http://localhost:8888/patterns/css/editor.css" />
 </head>
 <body>
+<div class="editor-window">
+	<div class="editor-manager">
+		<div class="editor-manager-controller">
+			<a href="#" type="share" class="btn-sm secondary rounded muted">Share</a>
+			<a href="#" type="publish" class="btn-sm secondary rounded">Publish...</a>
+			<a href="#" type="more" class="btn-sm secondary rounded muted">...</a>
+			<a href="#" type="author" class="avatar-xs"></a>
+		</div>
+		<a href="#" class="editor-manager-branding"><img src="img/layout/backcountry@3x.png" alt="" /></a>
+		<div class="editor-status">Draft</div>
+		<div class="editor-manager-publish">
+			<div class="editor-manager-section editor-manager-publish-default">
+				<h3>Ready to publish?</h3>
+				<p class="sm">Add or remove tags so people can find your story via different methods.</p>
+				<hr />
+				<a href="#" class="btn">Publish</a>
+				<div>
+					<p class="xs editor-manager-tab"><a href="#">Scheduling: None</a></p>
+					<p class="xs editor-manager-tab"><a href="#">Visibility: Private</a></p>
+					<p class="xs editor-manager-tab"><a href="#">Template: Article</a></p>
+				</div>
+			</div>
+			<div class="editor-manager-section editor-manager-publish-scheduling">
+				<input type="radio" id="unscheduled" name="schedule" checked="checked" />
+				<label for="unscheduled">
+					Not scheduled
+					<p class="xs">The story will be published when you click Publish.</p>
+				</label>
+				<input type="radio" id="scheduled" name="schedule" />
+				<label for="scheduled">
+					Scheduled to be published on
+					<input type="datetime-local" required="true" min="2000-01-01T01:00" max="2099-12-31T01:00" value="2016-03-16T12:48" />
+				</label>
+				<p class="xs">
+					The story will be published automatically within five minutes of the specified time.
+				</p>
+				<a href="#" class="btn">Save</a>
+				<a href="#" class="editor-manager-cancel">Cancel</a>
+			</div>
+			<div class="editor-manager-section editor-manager-publish-visibility">
+				<input type="radio" id="unvisible" name="visibility" checked="checked" />
+				<label for="unvisible">
+					Private
+					<p class="xs">The story will only be visible to those with the link. It won’t be listed on any public pages.</p>
+				</label>
+				<input type="radio" id="visible" name="visibility" />
+				<label for="visible">
+					Public
+					<p class="xs">The story will be accessible to everyone.</p>
+				</label>
+				<a href="#" class="btn">Save</a>
+				<a href="#" class="editor-manager-cancel">Cancel</a>
+			</div>
+			<div class="editor-manager-section editor-manager-publish-template">
+				<input type="radio" id="article" name="template" checked="checked" />
+				<label for="article">
+					Article
+					<p class="xs">The story will only be listed within the articles section of the website.</p>
+				</label>
+				<input type="radio" id="collection" name="template" />
+				<label for="collection">
+					Collection
+					<p class="xs">The story will only be listed within the collections section of the website.</p>
+				</label>
+				<input type="radio" id="page" name="template" />
+				<label for="page">
+					Page
+					<p class="xs">This story will only be accessible via direct url linking.</p>
+				</label>
+				<a href="#" class="btn">Save</a>
+				<a href="#" class="editor-manager-cancel">Cancel</a>
+			</div>
+		</div>
+	</div>
 	<div class="editor-format">
         <a href="#" class="control icons" type="bold"></a>
         <a href="#" class="control icons" type="italic"></a>
@@ -75,6 +149,7 @@
 			speed and racing shoes as well as recovery kicks and a pair of foul-weather shoes.
 		</p>
 	</div>
+</div>
 <script src="js/jquery-1.12.0.min.js"></script>
 <script src="js/jquery.bcs.js"></script>
 <script src="js/jquery.editor.js"></script>

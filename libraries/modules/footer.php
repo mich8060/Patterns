@@ -64,7 +64,7 @@
 				<div class="footer-app">
 					<a href="#">
 						<img src="img/layout/app-icon.png" alt="" />
-						Get the Backcountry App<br />Download Now
+						Get the Backcountry App<br /><u>Download Now</u>
 					</a>
 				</div>
 				<div class="col-lg-6">

@@ -233,60 +233,64 @@ p.medium {
   line-height: 30px;
 }
 /* line 191, ../sass/_styles.scss */
-p.small {
+p.sm {
+  color: #666666;
   font-size: 16px;
   line-height: 20px;
+  margin: 10px 0;
 }
-/* line 196, ../sass/_styles.scss */
-p.mouse {
-  font-size: 12px;
-  line-height: 15px;
+/* line 198, ../sass/_styles.scss */
+p.xs {
+  color: #999999;
+  font-size: 13px;
+  line-height: 14px;
+  margin: 5px 0;
 }
-/* line 201, ../sass/_styles.scss */
+/* line 205, ../sass/_styles.scss */
 p:before, p:after {
   content: "";
   display: block;
   height: 0px;
   margin: 0;
 }
-/* line 209, ../sass/_styles.scss */
+/* line 213, ../sass/_styles.scss */
 p.short:empty {
   display: block;
 }
-/* line 212, ../sass/_styles.scss */
+/* line 216, ../sass/_styles.scss */
 p.short:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper.";
   display: block;
   height: auto;
 }
-/* line 219, ../sass/_styles.scss */
+/* line 223, ../sass/_styles.scss */
 p.medium:empty {
   display: block;
 }
-/* line 222, ../sass/_styles.scss */
+/* line 226, ../sass/_styles.scss */
 p.medium:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus.";
   display: block;
   height: auto;
 }
-/* line 229, ../sass/_styles.scss */
+/* line 233, ../sass/_styles.scss */
 p.long:empty {
   display: block;
 }
-/* line 232, ../sass/_styles.scss */
+/* line 236, ../sass/_styles.scss */
 p.long:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus. Mauris ornare bibendum ex, at maximus diam porttitor quis. Nam fermentum massa in imperdiet vestibulum. Curabitur mattis lectus efficitur dignissim tempor.";
   display: block;
   height: auto;
 }
-/* line 239, ../sass/_styles.scss */
+/* line 243, ../sass/_styles.scss */
 p a:not(.btn) {
   margin: -.5em;
   padding: .5em;
   position: relative;
 }
 
-/* line 246, ../sass/_styles.scss */
+/* line 250, ../sass/_styles.scss */
 .hint,
 .mouse {
   color: #999999;
@@ -295,26 +299,26 @@ p a:not(.btn) {
   font-weight: light;
 }
 
-/* line 254, ../sass/_styles.scss */
+/* line 258, ../sass/_styles.scss */
 b, strong, caption, th, thead, dt, legend {
   font-weight: 'bold';
 }
 
 /* Lists */
-/* line 260, ../sass/_styles.scss */
+/* line 264, ../sass/_styles.scss */
 ul, ol {
   margin: 20px 0 20px 16px;
 }
-/* line 263, ../sass/_styles.scss */
+/* line 267, ../sass/_styles.scss */
 ul li, ol li {
   list-style: disc outside;
 }
-/* line 267, ../sass/_styles.scss */
+/* line 271, ../sass/_styles.scss */
 ul ol, ul ul, ol ol, ol ul {
   margin: 0 0 0 20px;
 }
 
-/* line 273, ../sass/_styles.scss */
+/* line 277, ../sass/_styles.scss */
 ol li {
   list-style: decimal outside;
 }
@@ -749,13 +753,132 @@ ol li {
 .editor-hero.active img {
   position: absolute;
   top: 50%;
-  -webkit-transform: translateY(-70%);
-  -moz-transform: translateY(-70%);
-  -ms-transform: translateY(-70%);
-  -o-transform: translateY(-70%);
-  transform: translateY(-70%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 /* line 340, ../sass/editor.scss */
+.editor-manager {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: solid 1px #efefef;
+  border-top: solid 4px #222222;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 999999;
+}
+/* line 350, ../sass/editor.scss */
+.editor-manager-branding {
+  border-right: solid 1px #efefef;
+  display: block;
+  float: left;
+  width: 80px;
+}
+/* line 357, ../sass/editor.scss */
+.editor-manager-controller {
+  float: right;
+  padding: 10px 30px;
+}
+/* line 362, ../sass/editor.scss */
+.editor-manager-publish {
+  background: #FFFFFF;
+  display: none;
+  padding: 20px;
+  padding-bottom: 10px;
+  position: fixed;
+  top: 55px;
+  right: 10px;
+  width: 320px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.35);
+  -ms-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.35);
+  -o-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.35);
+}
+/* line 375, ../sass/editor.scss */
+.editor-manager-publish:before {
+  background: #FFFFFF;
+  content: '';
+  display: block;
+  height: 14px;
+  left: 55%;
+  position: absolute;
+  top: -1px;
+  width: 14px;
+  -webkit-box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.6);
+  -ms-box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.6);
+  -o-box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.6);
+  box-shadow: -1px -1px 1px -1px rgba(0, 0, 0, 0.6);
+  -webkit-transform: rotate(45deg) translateY(-50%);
+  -moz-transform: rotate(45deg) translateY(-50%);
+  -ms-transform: rotate(45deg) translateY(-50%);
+  -o-transform: rotate(45deg) translateY(-50%);
+  transform: rotate(45deg) translateY(-50%);
+}
+/* line 388, ../sass/editor.scss */
+.editor-manager-publish input[type="datetime-local"] {
+  border: none;
+  border-bottom: solid 1px #c2c2c2;
+  font-size: 14px;
+  padding: 5px 0;
+  text-indent: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+/* line 398, ../sass/editor.scss */
+.editor-manager-publish input[type="radio"] + label {
+  clear: left;
+  display: block;
+  font-size: 16px;
+  padding: 0 0 10px 0;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 406, ../sass/editor.scss */
+.editor-manager-publish input[type="radio"] + label:before {
+  position: absolute;
+  top: 0;
+  left: -25px;
+}
+/* line 421, ../sass/editor.scss */
+.editor-manager-publish-default .btn {
+  float: right;
+  margin-top: 22px;
+}
+/* line 427, ../sass/editor.scss */
+.editor-manager-publish-scheduling, .editor-manager-publish-visibility, .editor-manager-publish-template {
+  padding-left: 25px;
+}
+/* line 432, ../sass/editor.scss */
+.editor-manager-section {
+  display: none;
+}
+/* line 435, ../sass/editor.scss */
+.editor-manager-section:first-of-type {
+  display: block;
+}
+/* line 441, ../sass/editor.scss */
 .editor-media {
   display: none;
   min-width: 320px;
@@ -771,11 +894,11 @@ ol li {
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
-/* line 351, ../sass/editor.scss */
+/* line 452, ../sass/editor.scss */
 .editor-media.active {
   display: block;
 }
-/* line 355, ../sass/editor.scss */
+/* line 456, ../sass/editor.scss */
 .editor-media .new-icons {
   cursor: pointer;
   display: inline-block;
@@ -796,12 +919,12 @@ ol li {
   /* for IE7 */
   display: inline;
 }
-/* line 365, ../sass/editor.scss */
+/* line 466, ../sass/editor.scss */
 .editor-media .new-icons:hover:after {
   opacity: 1;
   visibility: visible;
 }
-/* line 371, ../sass/editor.scss */
+/* line 472, ../sass/editor.scss */
 .editor-media .new-icons:after {
   background: #222222;
   color: #FFFFFF;
@@ -825,47 +948,47 @@ ol li {
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 387, ../sass/editor.scss */
+/* line 488, ../sass/editor.scss */
 .editor-media .new-icons[type="bag"]:before {
   content: "\e04f";
 }
-/* line 388, ../sass/editor.scss */
+/* line 489, ../sass/editor.scss */
 .editor-media .new-icons[type="camera"]:before {
   content: "\e07f";
 }
-/* line 389, ../sass/editor.scss */
+/* line 490, ../sass/editor.scss */
 .editor-media .new-icons[type="look"]:before {
   content: "\e087";
 }
-/* line 390, ../sass/editor.scss */
+/* line 491, ../sass/editor.scss */
 .editor-media .new-icons[type="grid"]:before {
   content: "\e06a";
 }
-/* line 391, ../sass/editor.scss */
+/* line 492, ../sass/editor.scss */
 .editor-media .new-icons[type="link"]:before {
   content: "\e08d";
 }
-/* line 392, ../sass/editor.scss */
+/* line 493, ../sass/editor.scss */
 .editor-media .new-icons[type="list"]:before {
   content: "\e067";
 }
-/* line 393, ../sass/editor.scss */
+/* line 494, ../sass/editor.scss */
 .editor-media .new-icons[type="speech"]:before {
   content: "\e02c";
 }
-/* line 394, ../sass/editor.scss */
+/* line 495, ../sass/editor.scss */
 .editor-media .new-icons[type="target"]:before {
   content: "\e09e";
 }
-/* line 395, ../sass/editor.scss */
+/* line 496, ../sass/editor.scss */
 .editor-media .new-icons[type="video"]:before {
   content: "\e008";
 }
-/* line 398, ../sass/editor.scss */
+/* line 499, ../sass/editor.scss */
 .editor-media-inputs {
   display: none;
 }
-/* line 405, ../sass/editor.scss */
+/* line 506, ../sass/editor.scss */
 .editor-photo-layout {
   background: #FFFFFF;
   display: none;
@@ -892,7 +1015,7 @@ ol li {
   -o-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
-/* line 419, ../sass/editor.scss */
+/* line 520, ../sass/editor.scss */
 .editor-photo-layout:after {
   background: #FFFFFF;
   content: '';
@@ -913,11 +1036,11 @@ ol li {
   -o-transform: rotate(225deg) translateY(-50%);
   transform: rotate(225deg) translateY(-50%);
 }
-/* line 432, ../sass/editor.scss */
+/* line 533, ../sass/editor.scss */
 .editor-photo-layout.active {
   display: block;
 }
-/* line 439, ../sass/editor.scss */
+/* line 540, ../sass/editor.scss */
 .editor-product {
   border: solid 1px #efefef;
   min-width: 320px;
@@ -935,24 +1058,24 @@ ol li {
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 448, ../sass/editor.scss */
+/* line 549, ../sass/editor.scss */
 .editor-product a {
   color: #999999;
   display: block;
   font-size: 15px;
 }
-/* line 454, ../sass/editor.scss */
+/* line 555, ../sass/editor.scss */
 .editor-product-brand {
   color: #222222;
   padding-top: 30px;
 }
-/* line 459, ../sass/editor.scss */
+/* line 560, ../sass/editor.scss */
 .editor-product-image {
   float: left;
   margin: 0 10px 10px 0;
   width: 35%;
 }
-/* line 465, ../sass/editor.scss */
+/* line 566, ../sass/editor.scss */
 .editor-product-input {
   border-top: solid 1px #efefef;
   clear: left;
@@ -964,14 +1087,25 @@ ol li {
   text-transform: uppercase;
   text-align: center;
 }
-/* line 476, ../sass/editor.scss */
+/* line 577, ../sass/editor.scss */
 .editor-product-input:empty {
   color: rgba(34, 34, 34, 0.5);
   display: block;
   text-transform: none;
 }
-/* line 481, ../sass/editor.scss */
+/* line 582, ../sass/editor.scss */
 .editor-product-input:empty:after {
   content: attr(placeholder);
   display: block;
+}
+/* line 590, ../sass/editor.scss */
+.editor-status {
+  color: #666666;
+  display: block;
+  float: left;
+  padding: 15px 20px;
+}
+/* line 597, ../sass/editor.scss */
+.editor-window {
+  padding-top: 54px;
 }

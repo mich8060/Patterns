@@ -332,7 +332,108 @@
 			img {
 				position: absolute;
 				top: 50%;
-				@include prefix("transform", translateY(-70%));
+				@include prefix("transform", translateY(-50%));
+			}
+		}
+	}
+
+	&-manager {
+		background:rgba(colors(white),0.95);
+		border-bottom:solid 1px colors(gray-4);
+		border-top:solid 4px colors(black);
+		left:0;
+		position:fixed;
+		right:0;
+		top:0;
+		z-index:999999;
+		
+		&-branding {
+			border-right:solid 1px colors(gray-4);
+			display:block;
+			float:left;
+			width:80px;
+		}
+		
+		&-controller {
+			float:right;
+			padding:10px 30px;
+		}
+		
+		&-publish {
+			background:colors(white);
+			display:none;
+			padding:20px;
+			padding-bottom:10px;
+			position:fixed;
+			top:55px;
+			right:10px;
+			width:320px;
+			@include prefix('box-sizing',border-box);
+			@include prefix("border-radius",4px);
+			@include prefix("box-shadow",(0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.35)));
+			
+			&:before {
+				background:colors(white);
+				content: '';
+				display: block;
+				height: 14px;
+				left:55%;
+				position:absolute;
+				top:-1px;
+				width: 14px;
+				@include prefix("box-shadow", -1px -1px 1px -1px rgba(0,0,0,.6));
+				@include prefix("transform", (rotate(45deg) translateY(-50%)));
+			}
+			
+			input[type="datetime-local"]{
+				border:none;
+				border-bottom:solid 1px colors(gray-3);
+				font-size:14px;
+				padding:5px 0;
+				text-indent:0;
+				@include prefix("appearance",none);
+			}
+			
+			input[type="radio"]{
+				+ label {
+					clear:left;
+					display:block;
+					font-size:16px;
+					padding:0 0 10px 0;
+					position:relative;
+					@include prefix('box-sizing',border-box);
+					
+					&:before {
+						position:absolute;
+						top:0;
+						left:-25px;
+					}
+				}
+				
+				&:checked {
+					+ label {
+						
+					}
+				}
+			}
+			
+			&-default {
+				.btn {
+					float:right;
+					margin-top:22px;
+				}
+			}
+			
+			&-scheduling, &-visibility, &-template {
+				padding-left:25px;
+			}
+		}
+	
+		&-section {
+			display:none;
+			
+			&:first-of-type {
+				display:block;
 			}
 		}
 	}
@@ -486,4 +587,14 @@
 		}
 	}
 
+	&-status {
+		color:colors(gray-1);
+		display:block;
+		float:left;
+		padding:15px 20px;
+	}
+
+	&-window {
+		padding-top:54px;
+	}
 }

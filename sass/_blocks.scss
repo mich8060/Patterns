@@ -101,9 +101,10 @@ dropdown {
 }
 
 footer {
-	color:colors(black);
 	background:colors(white);
+	color:colors(black);
 	clear:both;
+	position:relative;
 	
 	.footer {
 		
@@ -142,7 +143,7 @@ footer {
 			background:colors(white);
 			border-bottom:solid 1px colors(gray-4);
 			border-top:solid 1px colors(gray-4);
-			padding:20px 0;
+			padding:40px 0;
 			
 			.col-lg-4 {
 				&:last-child {
@@ -172,6 +173,12 @@ footer {
 			}
 		}
 	}
+	
+	strong {
+		display:block;
+		padding:0 0 10px 0;
+	}
+	
 	
 	a {
 		color:colors(gray-1);

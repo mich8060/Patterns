@@ -233,60 +233,64 @@ p.medium {
   line-height: 30px;
 }
 /* line 191, ../sass/_styles.scss */
-p.small {
+p.sm {
+  color: #666666;
   font-size: 16px;
   line-height: 20px;
+  margin: 10px 0;
 }
-/* line 196, ../sass/_styles.scss */
-p.mouse {
-  font-size: 12px;
-  line-height: 15px;
+/* line 198, ../sass/_styles.scss */
+p.xs {
+  color: #999999;
+  font-size: 13px;
+  line-height: 14px;
+  margin: 5px 0;
 }
-/* line 201, ../sass/_styles.scss */
+/* line 205, ../sass/_styles.scss */
 p:before, p:after {
   content: "";
   display: block;
   height: 0px;
   margin: 0;
 }
-/* line 209, ../sass/_styles.scss */
+/* line 213, ../sass/_styles.scss */
 p.short:empty {
   display: block;
 }
-/* line 212, ../sass/_styles.scss */
+/* line 216, ../sass/_styles.scss */
 p.short:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper.";
   display: block;
   height: auto;
 }
-/* line 219, ../sass/_styles.scss */
+/* line 223, ../sass/_styles.scss */
 p.medium:empty {
   display: block;
 }
-/* line 222, ../sass/_styles.scss */
+/* line 226, ../sass/_styles.scss */
 p.medium:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus.";
   display: block;
   height: auto;
 }
-/* line 229, ../sass/_styles.scss */
+/* line 233, ../sass/_styles.scss */
 p.long:empty {
   display: block;
 }
-/* line 232, ../sass/_styles.scss */
+/* line 236, ../sass/_styles.scss */
 p.long:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus. Mauris ornare bibendum ex, at maximus diam porttitor quis. Nam fermentum massa in imperdiet vestibulum. Curabitur mattis lectus efficitur dignissim tempor.";
   display: block;
   height: auto;
 }
-/* line 239, ../sass/_styles.scss */
+/* line 243, ../sass/_styles.scss */
 p a:not(.btn) {
   margin: -.5em;
   padding: .5em;
   position: relative;
 }
 
-/* line 246, ../sass/_styles.scss */
+/* line 250, ../sass/_styles.scss */
 .hint,
 .mouse {
   color: #999999;
@@ -295,26 +299,26 @@ p a:not(.btn) {
   font-weight: light;
 }
 
-/* line 254, ../sass/_styles.scss */
+/* line 258, ../sass/_styles.scss */
 b, strong, caption, th, thead, dt, legend {
   font-weight: 'bold';
 }
 
 /* Lists */
-/* line 260, ../sass/_styles.scss */
+/* line 264, ../sass/_styles.scss */
 ul, ol {
   margin: 20px 0 20px 16px;
 }
-/* line 263, ../sass/_styles.scss */
+/* line 267, ../sass/_styles.scss */
 ul li, ol li {
   list-style: disc outside;
 }
-/* line 267, ../sass/_styles.scss */
+/* line 271, ../sass/_styles.scss */
 ul ol, ul ul, ol ol, ol ul {
   margin: 0 0 0 20px;
 }
 
-/* line 273, ../sass/_styles.scss */
+/* line 277, ../sass/_styles.scss */
 ol li {
   list-style: decimal outside;
 }

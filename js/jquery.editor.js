@@ -4,6 +4,7 @@ $(document).ready(function(){
 		$('.editor-media').removeClass('active');
 		$('.editor-photo-layout').removeClass('active');
 		$('figure.focused').removeClass('focused');
+		$('.editor-manager-publish').hide();
 	}
 	
 	$.fn.buildGrid = function(){
@@ -106,7 +107,7 @@ $(document).ready(function(){
 				if($input.text().length >= 7){
 					//RAI
 					if($input.text().length == 7){
-						var sku = $input.text().substring(0,7);
+						var sku = $input.text().substring(0,7).toUpperCase();
 						$.getJSON("http://localhost:8888/patterns/proxy/products.php?sku="+sku,function(data){
 							$link = $('<a />').attr({
 								href:'#'
@@ -150,6 +151,16 @@ $(document).ready(function(){
 		});
 		$(this).before($quote);
 	}
+	
+	$(document).on({
+		click:function(e){
+			e.preventDefault();
+			$type = $(this).attr('type');
+			if($type == "publish"){
+				$('.editor-manager-publish').show();
+			}
+		}
+	},'.editor-manager-controller a');
 	
 	$(document).on({
 		click:function(e){
@@ -263,7 +274,24 @@ $(document).ready(function(){
 			var parent = $(window.getSelection().focusNode.parentNode);
 			if(code == 13){
 				// Save Draft
-				console.log("fired");
+				$status = $('.editor-status');
+				$status.html("Saving...");
+				$data = {
+					author: $('.editor-author-name').html(),
+					title: $('h1').html(),
+					content: $('.editor').html()
+				};
+				$data = $.param($data);
+				$.ajax({
+					data: $data,
+					type: 'POST',
+				  	url: 'http://localhost:8888/patterns/proxy/drafts.php',
+				}).done(function(){
+					// False sense of security feeling like we are making sure it's saved :)
+					window.setTimeout(function(){
+						$status.html("Draft");
+					},1000);
+				});
 				parent.addClass('focused');
 			}
 			if(!$(element).text().length){
@@ -300,10 +328,15 @@ $(document).ready(function(){
 						left: Math.round(box.left) + (pos.width() / 2)
 					}
 				pos[0].parentNode.removeChild(pos[0]);
-				$('.editor-format').css({
-					left:(box.left),
-					top:(box.top)
-				}).addClass('active');
+				var tag = window.getSelection().focusNode.parentNode.tagName;
+				if(tag == 'P' || tag == "BLOCKQUOTE"){
+					$('.editor-format').css({
+						left:(box.left),
+						top:(box.top)
+					}).addClass('active');
+				}else{
+					$('.editor-format').removeClass('active');
+				}
 			}else{
 				$('.editor-format').removeClass('active');
 			}
@@ -372,4 +405,22 @@ $(document).ready(function(){
 			$('.media-hero-upload').trigger('click');
 		}
 	},'.editor-hero');
+	
+	$(document).on({
+		click:function(e){
+			e.preventDefault();
+			$index = $(this).index() + 1;
+			console.log($index);
+			$('.editor-manager-section').hide();
+			$('.editor-manager-section').eq($index).show();
+		}
+	},'.editor-manager-tab');
+	
+	$(document).on({
+		click:function(e){
+			e.preventDefault();
+			$('.editor-manager-section').hide();
+			$('.editor-manager-section').eq(0).show();
+		}
+	},'.editor-manager-cancel');
 });
