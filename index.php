@@ -4,13 +4,14 @@
     include_once('libraries/dom.php');
     $template = new Template;
     $filename = basename($_SERVER["REQUEST_URI"]);
-    if(strpos($_SERVER["REQUEST_URI"], 'examples/') !== false) {
-        $pieces = explode("/", $_SERVER["REQUEST_URI"]);
-        $src = $pieces[2].'/'.$pieces[3].'/'.$pieces[4];
-        $source = file_get_contents($src);
-    }else{
-        $source = file_get_contents('pages/'.$filename);
-    }
+	if(strpos($filename,'.php') !== false){
+		ob_start();
+		include('pages/'.$filename);
+		$source .= ob_get_contents();
+		ob_end_clean();
+	}else{	
+    	$source = file_get_contents('pages/'.$filename);
+	}
     $html = str_get_html($source);
     
     /* Pre Tags Prettifying Format */
