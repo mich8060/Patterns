@@ -56,13 +56,20 @@
 }
 @font-face {
   font-family: 'Editor';
-  src: url("../fonts/editor.eot?t=4");
-  src: url("../fonts/editor.eot?#iefix") format("embedded-opentype"), url("../fonts/editor.woff?t=4") format("woff"), url("../fonts/editor.ttf?t=4") format("truetype"), url("../fonts/editor.svg#Glyphter") format("svg");
+  src: url("../fonts/editor.eot");
+  src: url("../fonts/editor.eot?#iefix") format("embedded-opentype"), url("../fonts/editor.woff") format("woff"), url("../fonts/editor.ttf") format("truetype"), url("../fonts/editor.svg#Glyphter") format("svg");
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'bcsicons';
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/bcsicons.eot");
+  src: url("../fonts/bcsicons.eot?#iefix") format("embedded-opentype"), url("../fonts/bcsicons.woff") format("woff"), url("../fonts/bcsicons.ttf") format("truetype"), url("../fonts/bcsicons.svg#bcsicons") format("svg");
+}
 /* Global */
-/* line 54, ../sass/_styles.scss */
+/* line 73, ../sass/_styles.scss */
 html {
   font-size: 18px;
   height: 100%;
@@ -79,12 +86,12 @@ html {
 }
 
 @media only screen and (min-width: 0px) and (max-width: 599px) {
-  /* line 62, ../sass/_styles.scss */
+  /* line 81, ../sass/_styles.scss */
   html {
     font-size: 18px;
   }
 }
-/* line 67, ../sass/_styles.scss */
+/* line 86, ../sass/_styles.scss */
 body {
   font-family: "Conduit",Helvetica, Arial, Sans-Serif;
   font-size: 100%;
@@ -108,7 +115,7 @@ body {
 }
 
 @media only screen and (min-width: 0px) and (max-width: 1000px) {
-  /* line 82, ../sass/_styles.scss */
+  /* line 101, ../sass/_styles.scss */
   body {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -120,7 +127,7 @@ body {
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* Retina-specific body weights & smoothing */
-  /* line 90, ../sass/_styles.scss */
+  /* line 109, ../sass/_styles.scss */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
@@ -130,49 +137,49 @@ body {
   }
 }
 /* Headlines */
-/* line 96, ../sass/_styles.scss */
+/* line 115, ../sass/_styles.scss */
 h1, h2, h3, h4, h5, .header-0, .header-1, .header-2, .header-3, .header-4 {
   font-weight: 400;
   word-wrap: normal;
 }
-/* line 100, ../sass/_styles.scss */
+/* line 119, ../sass/_styles.scss */
 h1.upper, h2.upper, h3.upper, h4.upper, h5.upper, .header-0.upper, .header-1.upper, .header-2.upper, .header-3.upper, .header-4.upper {
   text-transform: uppercase;
 }
-/* line 104, ../sass/_styles.scss */
+/* line 123, ../sass/_styles.scss */
 h1.lower, h2.lower, h3.lower, h4.lower, h5.lower, .header-0.lower, .header-1.lower, .header-2.lower, .header-3.lower, .header-4.lower {
   text-transform: lowercase;
 }
-/* line 108, ../sass/_styles.scss */
+/* line 127, ../sass/_styles.scss */
 h1.capitalize, h2.capitalize, h3.capitalize, h4.capitalize, h5.capitalize, .header-0.capitalize, .header-1.capitalize, .header-2.capitalize, .header-3.capitalize, .header-4.capitalize {
   text-transform: capitalize;
 }
 
-/* line 113, ../sass/_styles.scss */
+/* line 132, ../sass/_styles.scss */
 .header-0 {
   font-size: 36px;
   line-height: 40px;
 }
 
-/* line 118, ../sass/_styles.scss */
+/* line 137, ../sass/_styles.scss */
 h1, .header-1 {
   font-size: 32px;
   line-height: 40px;
 }
 
-/* line 123, ../sass/_styles.scss */
+/* line 142, ../sass/_styles.scss */
 h2, .header-2 {
   font-size: 28px;
   line-height: 30px;
 }
 
-/* line 128, ../sass/_styles.scss */
+/* line 147, ../sass/_styles.scss */
 h3, .header-3 {
   font-size: 24px;
-  line-height: 30px;
+  line-height: 25px;
 }
 
-/* line 133, ../sass/_styles.scss */
+/* line 152, ../sass/_styles.scss */
 h4, .header-4 {
   font-size: 18px;
   line-height: 20px;
@@ -180,7 +187,7 @@ h4, .header-4 {
 }
 
 /* Hyperlinks */
-/* line 141, ../sass/_styles.scss */
+/* line 160, ../sass/_styles.scss */
 a {
   color: #666666;
   cursor: pointer;
@@ -190,17 +197,17 @@ a {
   -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
-/* line 147, ../sass/_styles.scss */
+/* line 166, ../sass/_styles.scss */
 a.underline {
   text-decoration: underline;
 }
-/* line 151, ../sass/_styles.scss */
+/* line 170, ../sass/_styles.scss */
 a:hover {
   color: #222222;
 }
 
 /* Paragraphs */
-/* line 159, ../sass/_styles.scss */
+/* line 178, ../sass/_styles.scss */
 p {
   hyphenate: auto;
   hyphenate-lines: 3;
@@ -211,114 +218,121 @@ p {
   /* Mozilla based browsers */
   /* Works in Safari */
 }
-/* line 168, ../sass/_styles.scss */
+/* line 187, ../sass/_styles.scss */
 p::-moz-selection {
   background-color: #b4d5fe;
   color: #222;
 }
-/* line 174, ../sass/_styles.scss */
+/* line 193, ../sass/_styles.scss */
 p::selection {
   background-color: #b4d5fe;
   color: #222;
 }
-/* line 179, ../sass/_styles.scss */
+/* line 198, ../sass/_styles.scss */
 p.large {
   font-size: 24px;
   font-weight: 200;
   line-height: 30px;
 }
-/* line 185, ../sass/_styles.scss */
+/* line 204, ../sass/_styles.scss */
 p.medium {
   font-size: 18px;
   line-height: 30px;
 }
-/* line 191, ../sass/_styles.scss */
+/* line 210, ../sass/_styles.scss */
 p.sm {
   color: #666666;
   font-size: 16px;
   line-height: 20px;
   margin: 10px 0;
 }
-/* line 198, ../sass/_styles.scss */
+/* line 217, ../sass/_styles.scss */
 p.xs {
   color: #999999;
   font-size: 13px;
   line-height: 14px;
   margin: 5px 0;
 }
-/* line 205, ../sass/_styles.scss */
+/* line 224, ../sass/_styles.scss */
 p:before, p:after {
   content: "";
   display: block;
   height: 0px;
   margin: 0;
 }
-/* line 213, ../sass/_styles.scss */
+/* line 232, ../sass/_styles.scss */
 p.short:empty {
   display: block;
 }
-/* line 216, ../sass/_styles.scss */
+/* line 235, ../sass/_styles.scss */
 p.short:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper.";
   display: block;
   height: auto;
 }
-/* line 223, ../sass/_styles.scss */
+/* line 242, ../sass/_styles.scss */
 p.medium:empty {
   display: block;
 }
-/* line 226, ../sass/_styles.scss */
+/* line 245, ../sass/_styles.scss */
 p.medium:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus.";
   display: block;
   height: auto;
 }
-/* line 233, ../sass/_styles.scss */
+/* line 252, ../sass/_styles.scss */
 p.long:empty {
   display: block;
 }
-/* line 236, ../sass/_styles.scss */
+/* line 255, ../sass/_styles.scss */
 p.long:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus. Mauris ornare bibendum ex, at maximus diam porttitor quis. Nam fermentum massa in imperdiet vestibulum. Curabitur mattis lectus efficitur dignissim tempor.";
   display: block;
   height: auto;
 }
-/* line 243, ../sass/_styles.scss */
+/* line 262, ../sass/_styles.scss */
 p a:not(.btn) {
   margin: -.5em;
   padding: .5em;
   position: relative;
 }
 
-/* line 250, ../sass/_styles.scss */
-.hint,
-.mouse {
+/* line 269, ../sass/_styles.scss */
+.hint {
   color: #999999;
   font-size: 14px;
   line-height: 20px;
   font-weight: light;
 }
 
-/* line 258, ../sass/_styles.scss */
+/* line 275, ../sass/_styles.scss */
+.mouse {
+  color: #222222;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: light;
+}
+
+/* line 282, ../sass/_styles.scss */
 b, strong, caption, th, thead, dt, legend {
   font-weight: 'bold';
 }
 
 /* Lists */
-/* line 264, ../sass/_styles.scss */
+/* line 288, ../sass/_styles.scss */
 ul, ol {
   margin: 20px 0 20px 16px;
 }
-/* line 267, ../sass/_styles.scss */
+/* line 291, ../sass/_styles.scss */
 ul li, ol li {
   list-style: disc outside;
 }
-/* line 271, ../sass/_styles.scss */
+/* line 295, ../sass/_styles.scss */
 ul ol, ul ul, ol ol, ol ul {
   margin: 0 0 0 20px;
 }
 
-/* line 277, ../sass/_styles.scss */
+/* line 301, ../sass/_styles.scss */
 ol li {
   list-style: decimal outside;
 }

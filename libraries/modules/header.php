@@ -4,7 +4,7 @@
             <a href="#" class="icon" type="chat">Chat</a>
             <a href="#" class="icon" type="mobile">1-800-409-4502</a>
             <a href="#" class="account">
-                Jane Doe
+                John Doe
                 <div class="avatar-xs"></div>
             </a>
             <a href="#" class="icon" type="cart">

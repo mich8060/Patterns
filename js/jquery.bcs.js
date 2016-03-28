@@ -115,4 +115,35 @@ $(document).ready(function(){
 			}
 		}
 	},'.btn, .btn-sm, .btn-lg');
+	
+	$(document).on({
+		click:function(e){
+			e.preventDefault();
+			$buybox = $('.buybox');
+			$('.product-gallery').toggleClass('full');
+			if($buybox.hasClass('zoom')){
+				$buybox.removeClass('zoom');
+				window.setTimeout(function(){
+					$buybox.css('position','relative');
+				},300);
+			}else{
+				$buybox.addClass('zoom');
+				$buybox.css('position','absolute');
+			}
+		}
+	},'.product-gallery-image');
+	
+	$(document).on({
+		click:function(e){
+			e.preventDefault();
+			$el = $(this);
+			$el.parents('.select').find('.select-option').removeClass('selected');
+			$el.addClass('selected');
+		}
+	},'.select-option');
+	
+	$('.select').each(function(){
+		$(this).find('.select-options div').eq(0).addClass('selected');
+	});
+	
 });

@@ -59,7 +59,7 @@
 					<a href="#" class="icon" type="facebook"></a>
 					<a href="#" class="icon" type="twitter"></a>
 					<a href="#" class="icon" type="instagram"></a>
-					<a href="#" class="icon" type="google+"></a>
+					<a href="#" class="icon" type="google"></a>
 				</div>
 				<div class="footer-app">
 					<a href="#">
@@ -73,10 +73,10 @@
 			</div>
 			
 			<div class="gap50"></div>
-			<div class="footer-cap col-lg-12">
-				Other Backcountry Companies: <a href="#">Competitive Cyclist</a> - <a href="#">MotoSport</a> - <a href="#">Bergfreunde</a>
-				<div>&copy;Backcountry.com – All Rights Reserved</div>
-			</div>
 		</div>
+	</div>
+	<div class="footer-cap col-lg-12">
+		Other Backcountry Companies: <a href="#">Competitive Cyclist</a> - <a href="#">MotoSport</a> - <a href="#">Bergfreunde</a>
+		<div>&copy;Backcountry.com – All Rights Reserved</div>
 	</div>
 </footer>

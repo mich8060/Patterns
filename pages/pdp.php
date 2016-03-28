@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<title>Testing</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<link rel="stylesheet" href="css/screen.css?<?php echo time(); ?>" />
+</head>
+<body version="1.0">
+<overlay></overlay>
+<menu></menu>
+<header></header>
+<nav></nav>
+<textbanner>Free Shipping on Orders Over $50*</textbanner>
+<main class="bg-white">
+	<div class="container-lg">
+		<div class="col-lg-12">
+			Breadcrumb
+		</div>
+		<div class="clear"></div>
+		<div class="product-gallery">
+			<a href="#" class="bcsicons sm" type="close-lg"></a>
+			<div class="product-gallery-exclusive">Exclusive</div>
+			<div class="product-gallery-details">
+				<div class="hint">Detail Images</div>
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/ARCICE.jpg" class="active" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/ARCICE_D1.jpg" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/ARCICE_D1.jpg" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/MT_D4.jpg" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/MT_D2.jpg" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/MT_D3.jpg" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/MT_D1.jpg" />
+			</div>
+			<div class="product-gallery-image"><img src="http://content.backcountry.com/images/items/900/BNG/BNG0015/ARCICE.jpg" /></div>
+			<div class="product-gallery-colors">
+				<div class="hint">Available Colors</div>
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/ARCICE.jpg" class="active" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/BK.jpg" />
+				<img src="http://content.backcountry.com/images/items/small/BNG/BNG0015/MT.jpg" />
+			</div>
+		</div>
+		<div class="buybox">
+			<a href="#" class="buybox-brand"><img src="http://www.backcountry.com/images/brand/thumb/basinrangelogo.jpg" /></a>
+			<h3 class="bottom15">Basin and Range Quinn's Primaloft Jacket - Women's</h3>
+			<h3 class="bottom10">$159.95</h3>
+			<div class="mouse">Free 2-Day shipping on orders over $50*</div>
+			<div class="buybox-options">
+				<strong class="mouse">Select a Size:</strong>
+				<select custom="true">
+					<option value="0">XS</option>
+					<option value="1">S</option>
+					<option value="2">M</option>
+					<option value="3">L</option>
+					<option value="4">XL</option>
+				</select>
+				<strong class="mouse">Select a Color:</strong>
+				<select custom="true">
+					<option value="0" image="http://content.backcountry.com/images/items/tiny/BNG/BNG0015/ARCICE.jpg">Arctic Ice</option>
+					<option value="1" image="http://content.backcountry.com/images/items/tiny/BNG/BNG0015/BK.jpg">Black</option>
+					<option value="2" image="http://content.backcountry.com/images/items/tiny/BNG/BNG0015/MT.jpg">Mint</option>
+				</select>
+			</div>
+			<div class="row">
+				<div class="col-lg-6"><a href="#" class="btn lg block">Add To Cart</a></div>
+				<div class="col-lg-6"><a href="#" class="btn lg secondary block">Add to Wish List</a></div>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</main>
+<footer></footer>
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/jquery.bcs.js"></script>
+<script src="js/jquery.prototype.js"></script>
+</body>
+</html>

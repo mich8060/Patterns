@@ -49,6 +49,21 @@
         
     }
 
+	if($html->find('select')){
+		$select = $html->find('select');
+		foreach($select as $s){
+			if($s->attr['custom']){
+				$options = null;
+				$option = $s->find('option');
+				foreach($option as $o){
+					$options .= $template->options($o);
+				}
+				$selector = '<div class="select" tabindex="0"><div class="select-value">'.$s->find('option',0)->innertext.'</div><div class="select-options">'.$options.'</div></div>';
+                $s->outertext = $selector;
+			}
+		}
+	}
+
     /* Footer */
     if($html->find('footer')){
         $footer = $html->find('footer');

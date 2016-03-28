@@ -1,90 +1,252 @@
 $(document).ready(function(){
 	
+	
+	$.fn.mapDOM = function(element, json) {
+		var treeObject = {};
+
+	    // If string convert to document Node
+	    if (typeof element === "string") {
+	        if (window.DOMParser){
+	              parser = new DOMParser();
+	              docNode = parser.parseFromString(element,"text/xml");
+	        }else{
+	              docNode = new ActiveXObject("Microsoft.XMLDOM");
+	              docNode.async = false;
+	              docNode.loadXML(element); 
+	        } 
+	        element = docNode.firstChild;
+	    }
+
+	    //Recursively loop through DOM elements and assign properties to object
+	    function treeHTML(element, object) {
+	        object["type"] = element.nodeName;
+	        var nodeList = element.childNodes;
+	        if(nodeList != null){
+	            if(nodeList.length){
+	                object["content"] = [];
+	                for (var i = 0; i < nodeList.length; i++) {
+	                    if (nodeList[i].nodeType == 3) {
+	                        object["content"].push(nodeList[i].nodeValue);
+	                    } else {
+	                        object["content"].push({});
+	                        treeHTML(nodeList[i], object["content"][object["content"].length -1]);
+	                    }
+	                }
+	            }
+	        }
+	        if(element.attributes != null) {
+	            if(element.attributes.length){
+	                object["attributes"] = {};
+	                for (var i = 0; i < element.attributes.length; i++) {
+	                    object["attributes"][element.attributes[i].nodeName] = element.attributes[i].nodeValue;
+	                }
+	            }
+	        }
+	    }
+	    treeHTML(element, treeObject);
+
+	    var result = (json) ? JSON.stringify(treeObject) : treeObject;
+			result = jQuery.parseJSON(result);
+		return result;
+	}
+	
 	$.fn.showUtilities = function(){
 		$('.editor-media').removeClass('active');
 		$('.editor-photo-layout').removeClass('active');
 		$('figure.focused').removeClass('focused');
+		$('.editor-grid').removeClass('focused')
 		$('.editor-manager-publish').hide();
+		$('.editor-grid-units').hide();
+		$('.editor-grid-format').removeClass('active');
 	}
 	
-	$.fn.buildGrid = function(){
+	$.fn.buildGrid = function(columns){
 		$el = $(this);
-		$container = $('<div />').attr({
-			class: 'editor-grid',
-			contenteditable: false
-		});
+		$container = $('.editor-grid.focused');
+		$container.removeClass('options');
+		
+		var num = (columns.replace("columns-", "") * 1);
+		var icons = ['text','image','shop','instagram','video','look','createLink','align-left'];
+		
+		$('.editor-grid-format').removeClass('limited');
+		if(num == 2){
+			$('.editor-grid-format').addClass('limited');
+		}
 
-		for(x = 0;x <= 3;x++){
+		for(x = 1;x <= num;x++){
+			
 			$box = $('<div />').attr({
-				class: 'editor-grid-item',
-				contenteditable: false
+				class: 'editor-grid-item '+columns,
+				contenteditable: false,
 			});
 			
 			$control = $('<div />').attr({
 				class: 'editor-grid-item-control',
-				contenteditable: false
+				contenteditable: false,
+			});
+
+			$.each(icons,function(index, value){
+				$icon = $('<a />').attr({
+					class: 'icons',
+					href: '#',
+					type: value
+				});
+				$control.append($icon);
 			});
 			
-			$text = $('<a />').attr({
-				class: 'icons',
-				type: 'text'
-			});
-			
-			$image = $('<a />').attr({
-				class: 'icons',
-				type: 'image'
-			});
-			
-			$shop = $('<a />').attr({
-				class: 'icons',
-				type: 'shop'
-			});
-			
-			$instagram = $('<a />').attr({
-				class: 'icons',
-				type: 'instagram'
-			});
-			
-			$video = $('<a />').attr({
-				class: 'icons',
-				type: 'video'
-			});
-			
-			$look = $('<a />').attr({
-				class: 'icons',
-				type: 'look'
-			});
-			
-			$control.append($text).append($image).append($shop).append($instagram).append($video).append($look);
 			$box.append($control);
-			
 			$container.append($box);
 		}
+
+		$('.editor-grid-format').addClass('active').css('top',($container.offset().top - 45));
+	}
+
+	$.fn.buildGridLayout = function(){
+		$container = $('<div />').attr({
+			class: 'editor-grid focused options',
+			contenteditable: false
+		});
 		
-		$el.before($container);
+		$units = $('<div />').attr({
+			class: 'editor-grid-units'
+		});
+		
+		var icons = ['columns-4','columns-3','columns-2'];
+		$.each(icons,function(index, value){
+			$icon = $('<a />').attr({
+				class: 'icons',
+				href: '#',
+				type: value
+			});
+			$units.append($icon);
+		});
+		
+		$container.append($units);
+		$(this).before($container).removeClass('editing');
+	}
+
+	$.fn.buildArticle = function(){
+		$article = $('<div />').attr({
+			class: 'editor-article',
+			contenteditable: false
+		});
+		
+		$context = $('<select />').attr({
+			class: 'editor-article-source',
+		});
+		
+		$context.append('<option value="0">Please select an artice</option>')
+		
+		$image = $('<div />').attr({
+			class: 'editor-article-image',
+			contenteditable: false
+		});
+		
+		$display = $('<div />').attr({
+			class: 'editor-article-image-display',
+			contenteditable: false
+		}).css({
+			'background-image': 'url(http://www.backcountry.com/wp-content/uploads/2016/02/fmarmsater_150313_4967.jpg)',
+			'background-size':'cover',
+			'background-position':'center center'
+		});
+		
+		$text = $('<div />').attr({
+			class:'editor-article-body',
+			contenteditable: false
+		});
+		
+		$icon = $('<div />').attr({
+			class: 'icons',
+			contenteditable: false,
+			type: 'align-left'
+		}).html("Article");
+		
+		$title = $('<h4 />').html('How to Build a Trad Rack');
+		$paragraph = $('<p />').attr({
+			contenteditable:true
+		}).html('If you want to mix up your workout routine, we recommend finding a beach, a yoga mat, and some kettle bells. Hope you like sand!');
+		
+		$text.append($icon);
+		$text.append($title);
+		$text.append($paragraph);
+		$text.append($context);
+		$image.append($display);
+		
+		$link = $('<a />').attr({
+			class: 'editor-article-more',
+			contenteditable: false
+		}).html('Read More');
+		
+		$image.append($text);
+		$article.append($image);
+		$article.append($link);
+		
+		$(this).before($article);
 	}
 	
 	$(document).on({
 		click:function(e){
-			if($(this).attr('type') == 'shop'){
-				$el = $(this).parents('.editor-grid-item');
-				$div = $('<div />').attr({
-					class: 'content',
-					contenteditable: false
-				});
-				$input = $('<span />').attr({
-					class: 'editor-product-input',
-					contenteditable: true,
-					placeholder:'7-Digit SKU Number'
-				});
-
-				$div.append($input);
-				$el.html($div);
-				console.log($el);
+			e.preventDefault();
+			e.stopPropagation();
+			$(this).addClass('focused');
+			$('.editor-grid-format').addClass('active').css('top',$(this).offset().top);
+		}
+	},'.editor-grid');
+	
+	$(document).on({
+		click:function(e){
+			$el = $(this).parents('.editor-grid-item');
+			$type = $(this).attr('type');
+			switch($type){
+				case 'shop':
+					$div = $('<div />').attr({
+						class: 'content',
+						contenteditable: false
+					});
+					$input = $('<span />').attr({
+						class: 'editor-product-input',
+						contenteditable: true,
+						placeholder:'7-Digit SKU Number'
+					});
+					$div.append($input);
+					$el.html($div);
+					break;
+				case 'image':
+					$el.addClass('uploaded');
+					$('.grid-photo-upload').trigger('click');
+					break;
 			}
 
 		}
 	},'.editor-grid-item-control a');
+	
+	$(document).on({
+		click:function(e){
+			e.preventDefault();
+			$type = $(this).attr('type');
+			$focused = $('.editor-grid.focused');
+			$('.editor-grid.focused').removeClass('full wide');
+			switch($type){
+				case 'full':
+					$focused.addClass('full');
+					break;
+				case 'wide':
+					$focused.addClass('wide');
+					break;
+				case 'normal':
+					break;
+				case 'grid-stacked':
+					$focused.addClass('stacked');
+					$(this).attr('type','grid-unified');
+					break;
+				case 'grid-unified':
+					$focused.removeClass('stacked');
+					$(this).attr('type','grid-stacked');
+					break;
+			}
+		}
+	},'.editor-grid-format a');
 	
 	$.fn.buildProduct = function(){
 		$el = $(this);
@@ -101,8 +263,15 @@ $(document).ready(function(){
 		$div.append($input);
 		$el.before($div);
 		$input.focus();
+		$el.removeClass('editing');
 		
 		$(document).on({
+			keydown:function(e){
+				var code = (e.keyCode ? e.keyCode : e.which);
+				if(code == 13){
+					e.preventDefault(); 
+				}
+			},
 			keyup:function(e){
 				if($input.text().length >= 7){
 					//RAI
@@ -127,7 +296,7 @@ $(document).ready(function(){
 							$div.prepend($link);
 						});
 					}
-					
+
 					if($input.text().length > 7){
 						if($input.text().split("-")){
 							var colorway = $input.text().split("-");
@@ -155,6 +324,14 @@ $(document).ready(function(){
 	$(document).on({
 		click:function(e){
 			e.preventDefault();
+			$('.editing').buildGrid($(this).attr('type'));
+			$('.editor-grid-units').hide();
+		}
+	},".editor-grid-units a");
+	
+	$(document).on({
+		click:function(e){
+			e.preventDefault();
 			$type = $(this).attr('type');
 			if($type == "publish"){
 				$('.editor-manager-publish').show();
@@ -165,7 +342,23 @@ $(document).ready(function(){
 	$(document).on({
 		click:function(e){
 			e.preventDefault();
-			$('figure.focused').removeClass('full left normal wide right').addClass($(this).attr('type'));
+			$figure = $('figure.focused');
+			$type = $(this).attr('type');
+			if($type == 'slideshow'){
+				$slides = $('<div />').attr({
+					class: 'editor-photo-slides'
+				});
+				
+				for(x = 0;x <= 3;x++){
+					$slide = $('<div />').attr({
+						class: 'editor-photo-slide'
+					});
+				}
+				
+				$figure.find('.editor-photo-wrapper').append($slides);
+			}else{
+				$figure.removeClass('full left normal wide right').addClass($type);
+			}
 		}
 	},'.editor-photo-layout a')
 	
@@ -177,7 +370,11 @@ $(document).ready(function(){
 			});
 			$figcaption = $('<figcaption />').attr({
 				contenteditable: true
-			})
+			});
+			$wrapper = $('<div />').attr({
+				class: 'editor-photo-wrapper',
+				contenteditable: false
+			});
 			
 			$span = $('<span />').attr({
 				placeholder: 'Type caption for image (optional)'
@@ -197,7 +394,8 @@ $(document).ready(function(){
 				
 			if($file){
 				reader.readAsDataURL($file);
-				$figure.append($img);
+				$wrapper.append($img);
+				$figure.append($wrapper);
 			}
 			$figure.append($figcaption);
 			
@@ -207,6 +405,29 @@ $(document).ready(function(){
 		}
 	},'.media-photo-upload:file');
 		
+	$(document).on({
+		change:function(){
+			$focused = $('.editor-grid.focused .uploaded');
+			$content = $('<div />').attr({
+				class: 'content'
+			});
+			$img = $('<img />').attr({
+				contenteditable: false,
+				src:''
+			});
+			$file = $(this)[0].files[0];
+			var reader = new FileReader();
+				reader.addEventListener("load",function(){
+					$img.attr('src',reader.result);
+				},false);
+				
+			if($file){
+				reader.readAsDataURL($file);
+				$content.append($img);
+			}
+			$focused.html($content);	
+		}
+	},'.grid-photo-upload:file');
 		
 	$(document).on({
 		change:function(){
@@ -243,6 +464,9 @@ $(document).ready(function(){
 				case "bold":
 					document.execCommand('bold',false,true);
 					break;
+				case "italic":
+					document.execCommand('italic',false,true);
+					break;
 				case "h2":
 					document.execCommand('formatBlock', false, '<h2>'); 
 					break;
@@ -252,8 +476,13 @@ $(document).ready(function(){
 				case "blockquote":
 					document.execCommand('formatBlock', false, '<blockquote>'); 
 					break;
+				case "align-center":
+					$('p.focused').removeClass('text-center');
+					break;
+				case "align-left":
+					$('p.focused').addClass('text-center');
+					break;
 			}		
-				$('.editor-format').removeClass('active');
 		}
 	},'.editor-format a')
 		
@@ -264,7 +493,6 @@ $(document).ready(function(){
 		keydown:function(e){
 			var code = (e.keyCode ? e.keyCode : e.which);
 			if(code == 13){
-				// Detect if user hit enter
 				$(window.getSelection().focusNode.parentNode).removeClass('focused');
 			}
 		},
@@ -327,15 +555,18 @@ $(document).ready(function(){
 						top: (Math.round(box.top) - 50) + $(document).scrollTop(),
 						left: Math.round(box.left) + (pos.width() / 2)
 					}
+				if($(pos[0].parentNode).hasClass('text-center')){
+					$('.editor-format a[type="align-left"]').attr("type","align-center");
+				}else{
+					$('.editor-format a[type="align-center"]').attr("type","align-left");
+				}
 				pos[0].parentNode.removeChild(pos[0]);
 				var tag = window.getSelection().focusNode.parentNode.tagName;
-				if(tag == 'P' || tag == "BLOCKQUOTE"){
+				if(tag != "H1" && tag != "H2" && tag != "H3"){
 					$('.editor-format').css({
 						left:(box.left),
 						top:(box.top)
 					}).addClass('active');
-				}else{
-					$('.editor-format').removeClass('active');
 				}
 			}else{
 				$('.editor-format').removeClass('active');
@@ -352,7 +583,7 @@ $(document).ready(function(){
 			if(e.offsetX < 0){
 				// Add Media Button
 				$(this).toggleClass('editing');
-				$('.editor-media').toggleClass('active').css('top',$(this).offset().top - 15);
+				$('.editor-media').toggleClass('active').css('top',$(this).offset().top - 30);
 			}else{
 				// Clicked on Text
 				$('.editor-media').removeClass('active');
@@ -375,11 +606,14 @@ $(document).ready(function(){
 					$('.media-photo-upload').trigger('click');
 					break;
 				case 'grid':
-					$('.editing').buildGrid();
+					$('.editing').buildGridLayout();
 					break;
 				case 'list':
 					break;
-				case 'bag':
+				case 'align-left':
+					$('.editing').buildArticle();
+					break;
+				case 'shop':
 					$('.editing').buildProduct();
 					break;
 			}
@@ -391,11 +625,11 @@ $(document).ready(function(){
 			e.preventDefault();
 			e.stopPropagation();
 			$('figure.focused').removeClass('focused');
-			$top = $(this).offset().top - 40;
+			$top = $(this).offset().top;
 			$(this).addClass('focused');
-			$('.editor-photo-layout').css('top',$top).addClass('active');
+			$('.editor-photo-layout').css('top',$top - 50).addClass('active');
 			$('html, body').animate({
-				scrollTop: $top
+				scrollTop: $top - 100
 			},300);
 		}
 	},'figure');
@@ -410,7 +644,6 @@ $(document).ready(function(){
 		click:function(e){
 			e.preventDefault();
 			$index = $(this).index() + 1;
-			console.log($index);
 			$('.editor-manager-section').hide();
 			$('.editor-manager-section').eq($index).show();
 		}
@@ -423,4 +656,10 @@ $(document).ready(function(){
 			$('.editor-manager-section').eq(0).show();
 		}
 	},'.editor-manager-cancel');
+	
+
+		var initElement = $('.editor')[0];
+		json = $(this).mapDOM(initElement, true);
+		console.log(JSON.stringify(json,0,2));
+
 });

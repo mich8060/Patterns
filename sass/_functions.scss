@@ -11,3 +11,11 @@
   	}	
   	@return map-get($colorFamily, $key);
 }
+
+
+@function social($key) {
+	@if not map-has-key($social, $key) {
+    	@warn "Key `#{$key}` not found in $social map.";
+  	}	
+  	@return map-get($social, $key);
+}

@@ -11,5 +11,10 @@ audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
 audio:not([controls]){display:none}
 
 /* Debug */
-.debug { outline:solid 1px red; }
-.debug-background { background:rgba(255, 0, 0, 0.2) !important; }
+.debug { 
+	outline:solid 1px red;
+	
+	&-background { background:rgba(255, 0, 0, 0.2) !important; }	
+	&-blue { outline:solid 1px blue; }
+	&-green { outline:solid 1px green; }
+}

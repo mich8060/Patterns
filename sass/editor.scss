@@ -16,7 +16,8 @@
 	
 	blockquote {
 		border-left:solid 3px colors(black);
-		font-size:24px;
+		color:colors(gray-1);
+		font-size:20px;
 		font-style:italic;
 		font-weight:100;
 		line-height:32px;
@@ -32,6 +33,7 @@
 		max-width:800px;
 		margin:0 auto 10px;
 		padding:0 20px;
+		position:relative;
 		@include prefix('box-sizing',border-box);
 		
 		img {
@@ -129,10 +131,11 @@
 	p {
 		
 		a {
-			border-bottom:solid 1px colors(gray-1);
+			border-bottom:solid 1px colors(gray-2);
 			display:inline;
 			padding:0 !important;
 			margin:0 !important;
+			@include prefix("transition", all 0.3s ease);
 			
 			&:hover {
 				border-bottom:solid 1px colors(black);
@@ -165,20 +168,21 @@
 			@include prefix('box-sizing',border-box);
 
 			&:before {
-				content: "\e095";
+				content:'\0059';
 				cursor:pointer;
 				display:block;
-				font-family: 'simple-line-icons';
+		   		font-family: 'Editor';
 				height:25px;
-				left:-40px;
+				left:-20px;
 				line-height:25px;
 				opacity:0;
 				position:absolute;
 				text-align:center;
-				top:-10px;
+				top:-14px;
 				visibility:hidden;
 				width:25px;
-
+				
+				@include prefix("transform",rotate(45deg));
 				@include prefix("transition",all 0.3s ease);
 			}
 
@@ -191,10 +195,70 @@
 
 			&.editing {
 				&:before {
-					@include prefix("transform",rotate(45deg));
+					@include prefix("transform",rotate(0deg));
 				}
 			}
 		}	
+	}
+	
+	&-article{
+		border-bottom:solid 1px colors(gray-4);
+		border-top:solid 1px colors(gray-4);
+		margin:20px 0;
+		
+		&-body {
+			float:right;
+			padding:20px 40px;
+		    margin: 0 auto;
+			width:50%;
+			@include prefix('box-sizing',border-box);
+			
+			h4 {
+				margin-top:20px;
+			}
+			
+			.icons {
+				font-size:16px;
+			}
+		}
+		
+		&-image {
+			padding:20px;
+			min-width:320px;
+			max-width:800px;
+		    margin: 0 auto;
+			@include prefix('box-sizing',border-box);
+			
+			&:after {
+				clear:both;
+				content:"";
+				display:block;
+			}
+			
+			&-display {
+				float:left;
+				width:50%;
+				@include aspect-ratio(3,2);
+			}
+		
+
+		}
+		
+		&-more {
+			border-top:solid 1px colors(gray-4);
+			clear:both;
+			display:block;
+			padding:10px;
+			text-align:center;
+		}
+	
+		&-source {
+		    margin: 0 auto;
+			text-align:center;
+			width:200px;
+			
+
+		}
 	}
 	
 	&-author {
@@ -225,25 +289,30 @@
 	}
 	
 	&-format {
-		background:colors(white);
+		background:colors(gray-4);
 		display:none;
 		left:50%;
 		padding:5px;
 		position:absolute;
 		text-align:center;
 		top:500px;
-		width:180px;		
+		width:231px;		
 		z-index:99999;
-		@include prefix("border-radius",4px);
-		@include prefix("box-shadow",(0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.35)));
 		@include prefix("transform",translate(-50%,0));
 		
 		a {
+			background:colors(white);
 			cursor:pointer;
+			display:block;
+			float:left;
+			padding:5px 0 5px 5px;
+			position:relative;
+			margin-left:1px;
+			z-index:9;
 		}
 		
 		&:after {
-			background:colors(white);
+			background:colors(gray-4);
 			content: '';
 			display: block;
 			height: 14px;
@@ -251,7 +320,6 @@
 			position:absolute;
 			bottom:-1px;
 			width: 14px;
-			@include prefix("box-shadow", -1px -1px 1px -1px rgba(0,0,0,.6));
 			@include prefix("transform", (rotate(225deg) translateY(-50%)));
 		}
 		
@@ -261,9 +329,17 @@
 	}
 
 	&-grid {
-		max-width:1100px;
+		background:colors(white);
+		min-width:320px;
+		max-width:800px;
 		margin:0 auto;
 		padding:20px;
+		text-align:center;
+		@include prefix('box-sizing',border-box);
+		
+		&.options {
+			background:colors(gray-4);
+		}
 		
 		&:after {
 			content:"";
@@ -271,36 +347,171 @@
 			display:block;
 		}
 		
+		&.wide {
+			min-width:320px;
+			max-width:1100px;
+		}
+		
+		&.full {
+			min-width:320px;
+			max-width:1400px;
+		}
+		
+		&.stacked {
+			.columns-2 {
+				background:colors(white);
+				border:none;
+				padding:20px 0 20px 20px;
+				@include prefix('box-sizing',border-box);
+				@include aspect-ratio(4, 1);
+				
+				&:first-of-type {
+					padding:20px 20px 20px 0;
+				}
+				
+				&:before {
+					background:colors(gray-5);
+					border:solid 1px colors(gray-4);
+				}
+			}
+			
+			.uploaded {
+				position:relative;
+				
+				&:before {
+					display:none;
+				}
+				
+				.content {
+					position:relative;
+				}
+			}
+		}
+		
 		&-item {
+			background:colors(gray-5);
 			border:solid 1px colors(gray-4);
 			float:left;
 			padding:10px;
-			width:25%;
 			@include aspect-ratio(1, 1);
 			@include prefix('box-sizing',border-box);
+			@include prefix("transition", all 0.3s ease);
+			
+			&.columns-4 {	
+				width:25%;
+			}
+			
+			&.columns-3 {	
+				width:33.3%;
+			}
+			
+			&.columns-2 {	
+				width:50%;
+			}
+			
+			&:hover {
+				border:solid 1px colors(black);
+			}
 			
 			&-control {
-				border-top:solid 1px colors(gray-4);
-				border-left:solid 1px colors(gray-4);
+				background:colors(white);
 				position:absolute;
 				top:50%;
 				left:50%;
-				width:102px;
+				width:132px;
 				@include prefix("transform",translate(-50%,-50%));
 				
 				a {
 					border-right:solid 1px colors(gray-4);
 					border-bottom:solid 1px colors(gray-4);
+					display:block;
+					float:left;
 					margin:0;
 					padding:5px;
 					text-align:center;
 					
 					&:before {
 						margin-right:0;
-						top:6px;
 					}
 				}
 			}
+		}
+	
+		&-format {
+			background:colors(gray-4);
+			display:none;
+			left:50%;
+			padding:5px;
+			position:absolute;
+			text-align:center;
+			top:400px;
+			width:100px;		
+			z-index:99999;
+			@include prefix("transform",translate(-50%,-50%));
+			
+			&.limited {
+				width:132px;
+				
+				.icons[type="grid-stacked"]{
+					@include inline-block;
+				}
+			}
+			
+			.icons[type="grid-stacked"]{
+				display:none;
+			}
+			
+			&.active {
+				display:block;
+			}
+			
+			&:after {
+				background:colors(gray-4);
+				content: '';
+				display: block;
+				height: 14px;
+				left:50%;
+				position:absolute;
+				bottom:-1px;
+				width: 14px;
+				@include prefix("transform", (rotate(225deg) translateY(-50%)));
+			}
+			
+			a {
+				background:colors(white);
+				display:block;
+				float:left;
+				padding:5px 0 5px 5px;
+				position:relative;
+				margin-left:1px;
+				z-index:9;
+			}
+		}
+	
+		&-units {
+			background:colors(gray-4);
+			left:50%;
+			margin:0 auto;
+			padding:5px;
+			text-align:center;
+			width:99px;		
+			z-index:99999;
+
+			
+			&.active {	
+				display:block;
+			}
+			
+			a {
+				background:colors(white);
+				display:block;
+				float:left;
+				padding:5px 0 5px 5px;
+				position:relative;
+				margin-left:1px;
+				z-index:9;
+			}
+
 		}
 	}
 
@@ -357,6 +568,19 @@
 		&-controller {
 			float:right;
 			padding:10px 30px;
+			
+			a:not(.avatar-xs) {
+				border-right:solid 1px colors(gray-4);
+				padding:15px 20px;
+				
+				&:first-of-type{
+					border-left:solid 1px colors(gray-4);
+				}
+			}
+			
+			.avatar-xs {
+				margin-left:30px;
+			}
 		}
 		
 		&-publish {
@@ -366,7 +590,7 @@
 			padding-bottom:10px;
 			position:fixed;
 			top:55px;
-			right:10px;
+			right:50px;
 			width:320px;
 			@include prefix('box-sizing',border-box);
 			@include prefix("border-radius",4px);
@@ -377,7 +601,7 @@
 				content: '';
 				display: block;
 				height: 14px;
-				left:55%;
+				left:50%;
 				position:absolute;
 				top:-1px;
 				width: 14px;
@@ -443,57 +667,48 @@
 		min-width:320px;
 		max-width:760px;
 		left:50%;
+		padding:5px;
 		position:absolute;
 		top:500px;
 		width:100%;		
 		z-index:99999;
 		@include prefix("transform",translate(-50%,0));
 		
+		&:before {
+			background:colors(gray-4);
+			content: '';
+			display: block;
+			height: 14px;
+			left:3px;
+			position:absolute;
+			top:30%;
+			width: 14px;
+			@include prefix("transform", (rotate(225deg) translateY(-50%)));
+		}
+		
 		&.active {	
 			display:block;
 		}
 		
-		.new-icons {
+		a {
+			background:colors(white);
+			border-top:solid 5px colors(gray-4);
+			border-right:solid 1px colors(gray-4);
+			border-bottom:solid 5px colors(gray-4);
 			cursor:pointer;
-			@include inline-block;
-			font-family:'simple-line-icons' !important;
-			height:25px;
-			line-height:25px;
-			padding:5px 0;
-			width:30px;
+			display:block;
+			float:left;
+			padding:5px 0 5px 5px;
+			position:relative;
+			z-index:9;
 			
-			&:hover {
-				&:after {
-					opacity:1;
-					visibility:visible;
-				}
+			&:first-of-type {
+				border-left:solid 5px colors(gray-4);
 			}
 			
-			&:after {
-				background:colors(black);
-				color:colors(white);
-				content:attr(name);
-				display:block;
-				position:absolute;
-				font-size:12px;
-				padding:0 5px;
-				top:-20px;
-				opacity:0;
-				visibility:hidden;
-				margin-left:-10px;
-				@include prefix("border-radius",3px);
-				@include prefix("transition", all 0.3s ease);
+			&:last-of-type {
+				border-right:solid 5px colors(gray-4);
 			}
-			
-			&[type="bag"]{ &:before{ content: "\e04f"; }}
-			&[type="camera"]{ &:before{ content: "\e07f"; }}
-			&[type="look"]{ &:before{ content: "\e087"; }}
-			&[type="grid"]{ &:before{ content: "\e06a"; }}
-			&[type="link"]{ &:before{ content: "\e08d"; }}
-			&[type="list"]{ &:before{ content: "\e067"; }}
-			&[type="speech"]{ &:before{ content:"\e02c"; }}
-			&[type="target"]{ &:before{ content: "\e09e"; }}
-			&[type="video"]{ &:before{ content: "\e008"; }}
 		}
 	
 		&-inputs {
@@ -504,21 +719,19 @@
 
 	&-photo {
 		&-layout {
-			background:colors(white);
+			background:colors(gray-4);
 			display:none;
 			left:50%;
 			padding:5px;
 			position:absolute;
 			text-align:center;
 			top:500px;
-			width:170px;		
+			width:198px;		
 			z-index:99999;
-			@include prefix("border-radius",4px);
-			@include prefix("box-shadow",(0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.35)));
 			@include prefix("transform",translate(-50%,0));
 			
 			&:after {
-				background:colors(white);
+				background:colors(gray-4);
 				content: '';
 				display: block;
 				height: 14px;
@@ -526,14 +739,37 @@
 				position:absolute;
 				bottom:-1px;
 				width: 14px;
-				@include prefix("box-shadow", -1px -1px 1px -1px rgba(0,0,0,.6));
 				@include prefix("transform", (rotate(225deg) translateY(-50%)));
+			}
+			
+			a {
+				background:colors(white);
+				cursor:pointer;
+				display:block;
+				float:left;
+				padding:5px 0 5px 5px;
+				position:relative;
+				margin-left:1px;
+				z-index:9;
 			}
 			
 			&.active {	
 				display:block;
 			}
 
+		}
+	
+		&-slides {
+			background:rgba(colors(black),0.8);
+			bottom:0;
+			left:0;
+			position:absolute;
+			right:0;
+			height:120px;
+		}
+		
+		&-wrapper {
+			position:relative;
 		}
 	}
 

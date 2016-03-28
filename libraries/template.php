@@ -17,6 +17,15 @@ class Template {
         $template = $item->attr['template'];
         return $this->compile('modules/dropdowns/'.$template.'.php',null);
     }
+	
+	public function options($item){
+		$data = array(
+            "name"		=> $item->innertext,
+            "value"   	=> $item->value,
+            "image"     => $item->attr['image']
+        );
+		return $this->compile('modules/options.php',$data);
+	}
 
 	public function footer() {
 		return $this->compile('modules/footer.php',null);
