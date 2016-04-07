@@ -1,3 +1,4 @@
+<overlay></overlay>
 <menu>
     <div class="menu-window">
         <div class="menu-toolbar">

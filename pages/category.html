@@ -1,0 +1,529 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<title>Men's Clothing</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0" />
+<link rel="stylesheet" href="css/screen.css" />
+<style>
+	.grid-ad {
+		overflow: hidden;
+		padding-top: 10px !important;
+	}
+	.curated-grid-ad, .medium-ad {
+		margin-bottom: 30px;
+	}
+	
+	.main-banner {
+		position: relative;
+		text-align: center;
+	}
+	.main-banner-content {
+		position: absolute;
+		display: inline-block;
+		top: 40%;
+		left: 43%;
+	}
+	.main-banner-sub-content {
+		position: absolute;
+		text-align: left;
+		right: 20px;
+		bottom: 20px;
+		font-size: 16px;
+	}
+	.main-banner-sub-content p {
+		margin: 0;
+	}
+	.main-banner-sub-content a {
+		font-style: italic;
+		text-decoration: underline;
+		color: #222;
+	}
+
+	
+	
+	
+	
+	
+	.grid-ad-banner {
+		position: relative;
+	}
+	.grid-ad-banner .content {
+		width: 230px;
+		margin: 0 15px;
+		position: absolute;
+		bottom: 50px !important; 
+	}
+	.grid-ad-banner.center {
+		text-align: center;
+		background-position: center center !important;
+	}
+	.grid-ad-banner.center .content {
+		position: relative !important;
+		top: 120px !important; 
+		display: inline-block;
+	}
+	
+	.grid-ad-banner.right {
+		background-position: right center !important;
+	}
+	.grid-ad-banner.right .content {
+		text-align: right;
+		right: 0;
+	}
+	
+	
+	
+	
+	
+	.listing:nth-child(4n+1), .listing:nth-child(3n+1), .listing:nth-child(2n+1) {
+		clear: inherit !important;
+	}
+	
+	.listing-gallery {
+		padding: 95% 0 0 0 !important;
+	}
+	
+	.seperator {
+		width: 47%;
+		margin: 0 auto;
+		clear: both;
+		height: 2px;
+		padding: 30px 10px 0;
+		border-bottom: 2px solid #e2e2e2;	
+	}
+	
+	.subnav {
+		background: #fff;
+		border-bottom: solid 1px #efefef;
+	}
+	.subnav ul {
+		text-align: center;
+	}
+	.subnav ul li {
+		display: inline-block;
+		list-style: none;
+		padding: 0;
+	}
+	.subnav ul li a {
+		padding: 10px 11px;
+		display: inline-block;
+		font-size: 16px;
+	}
+	.hero-banner {
+		height: 400px;
+		overflow: hidden;
+	}
+	
+	.brand-logos {
+		margin: 30px auto 20px;
+	}
+	
+	.brand-logos img {
+		width: 50px;
+		margin: 0 auto;
+		opacity: .5;
+		transition: opacity ease 300ms;
+	}
+	.brand-logos img.long {
+		width: 75px;
+	}
+	.brand-logos img:hover {
+		opacity: 1;
+	}
+	
+	.shop-all {
+		text-align: center;
+		padding-top: 40px;
+	}
+	.shop-all span {
+		display: inline-block;
+	}
+	
+    .show-desktop {
+	    display: inherit;
+    }
+    .show-mobile {
+	    display: none;
+    }
+	
+	@media only screen and (max-width: 1100px) and (min-width: 900px) {
+	    .main-banner {
+		    margin-top: 41px;
+	    }
+	}
+	
+	@media screen and (max-width: 900px) {
+	    .curated-grid-ad .promo-banner {
+	       width: 66.5%;
+	    } 
+	    .curated-grid-ad .col-lg-6 {
+	       width: 66.5%;
+	    }
+	    .medium-ad .promo-banner {
+	       width: 100%;
+	    }
+	}
+	@media screen and (max-width: 600px) {
+	    .curated-grid-ad .promo-banner, .medium-ad .promo-banner {
+	       width: 100%;
+	    }
+	    .curated-grid-ad .col-lg-6 {
+	       width: 100%;
+	    }
+	    .curated-grid-ad {
+		    
+	    }
+	    
+	    div[class^='col-'] {
+		    padding: 3px;
+	    }
+	    .curated-grid-ad .product-grid {
+		    width: 100%;
+		    overflow-x: scroll;
+	    }
+	    .product-grid-wrapper {
+		    width: 1680px;
+	    }
+	    .product-grid-wrapper .listing {
+		    width: 15% !important;
+	    }
+	    
+	    .brand-logos {
+		    width: 100%;
+		    overflow-x: scroll;
+	    }
+	    .brand-logos .brand-logo-wrapper {
+		    width: 900px;
+	    }
+	    
+	    .promo-banner .content {
+		    max-width: 55%;
+	    }
+	    
+	    .show-desktop {
+		    display: none;
+	    }
+	    .show-mobile {
+		    display: inherit;
+	    }
+	}	
+	
+	.btn.secondary {
+		background:rgba(255, 255, 255, 0);
+	}
+	
+	.btn.white {
+		border-color: #fff !important;
+		color: #fff !important;
+	}	
+	.white {color: #fff !important;}
+	
+	.listing-info-rating {
+		display: inherit !important;
+	}
+	
+	.listing-info-rating .rating {
+		opacity: 1 !important;
+	}
+	
+	.icon-box {
+	    float: left;
+	    border: 1px solid #222;
+	    padding: 6px;
+	    border-radius: 50%;
+	    width: 11px;
+	    height: 10px;
+	    margin-bottom: 30px;
+	    margin-right: 5px;
+	}
+	
+</style>
+
+
+</head>
+<body site="bcs" version="1.0">
+<header globaltext="true"></header>
+    <div class="clear"></div>
+    
+    
+
+    <main class="bg-gray-4">
+    	<div class="main-banner">
+    		<div class="main-banner-content">
+	    		<h1>Men's Clothing</h1>
+<!-- 	    		<span href="#" class="btn secondary ">Shop All</span> -->
+    		</div>
+    		<div class="main-banner-sub-content">
+				<div class="icon-box" style="float: left;">
+					<img style="width: 1spx" src="img/pages/camera.png">
+    			</div>
+				<p>Ocean View Collection</p>
+				<a href="#">Shop Now</a>
+    		</div>
+    		<img class="show-desktop" src="img/pages/hero2.png">
+    		<img class="show-mobile" src="img/pages/hero-mobile.png">
+    	</div>
+    	
+    	<div class="subnav">
+	    	<ul class="container-lg">
+	    		<li><a href="#">Most Popular</a></li>
+	    		<li><a href="#">Best Sellers</a></li>
+	    		<li><a href="#">New Arrivals</a></li>
+	    		<li><a href="#">Shop All</a></li>
+	    	</ul>
+	    	<div class="clear"></div>
+    	</div>
+    	<div class="subnav">
+	    	<ul class="container-lg">
+	    		<li><a href="#">Jackets</a></li>
+	    		<li><a href="#">Pants</a></li>
+	    		<li><a href="#">Shirts</a></li>
+	    		<li><a href="#">Baselayers</a></li>
+	    		<li><a href="#">Shorts</a></li>
+	    		<li><a href="#">Shoes & Footwear</a></li>
+	    		<li><a href="#">Accessories</a></li>
+	    		<li><a href="#">Sunglasses</a></li>
+	    		<li><a href="#">Watches</a></li>
+	    		<li><a href="#">Bike Clothing</a></li>
+	    		<li><a href="#">Performance Clothing</a></li>
+	    		<li><a href="#">More</a></li>
+	    	</ul>
+	    	<div class="clear"></div>
+    	</div>
+		<!-- Brand Logos -->
+    	<div class="brand-logos container-lg">
+	    	<div class="brand-logo-wrapper">
+		    	<div class="col-lg-2">
+			    	<a href="#"><img src="http://content.backcountry.com/promo_upload/bcs/brand-logos/logo-thenorthface.png"></a>
+		    	</div>
+		    	<div class="col-lg-2">
+			    	<a href="#"><img src="img/pages/marmot.png"></a>
+		    	</div>
+		    	<div class="col-lg-2">
+			    	<a href="#"><img class="long" style="margin-top: 8px;" src="img/pages/basinrange.png"></a>
+		    	</div>
+		    	<div class="col-lg-2">
+			    	<a href="#"><img class="long" src="http://content.backcountry.com/promo_upload/bcs/brand-logos/logo-columbia.png"></a>
+		    	</div>
+		    	<div class="col-lg-2">
+			    	<a href="#"><img class="long" src="http://content.backcountry.com/promo_upload/bcs/brand-logos/logo-arcteryx.png"></a>
+		    	</div>
+		    	<div class="col-lg-2">
+			    	<a href="#"><img class="long" src="http://content.backcountry.com/promo_upload/bcs/2015/32540/logo.png"></a>
+		    	</div>
+	    	</div>
+	    	<div class="clear"></div>
+    	</div>
+
+		<!-- Grid Ad 1 -->
+    	<div class="container-lg curated-grid-ad">
+			
+			<div class="col-lg-6" style="margin-top: 10px;">
+		    	<div class="grid-ad-banner left same-height" style="height: 300px; background: url('img/pages/ad-2-12x6.jpg'); background-size: auto 100%; ">
+					<div class="content">
+						<img style="width: 45px; margin-bottom: 15px;" src="http://content.backcountry.com/promo_upload/bcs/2016/35143/logo.jpg">
+						<h2>Bring on the Weather </h2>
+						<p style="font-style: italic; margin: 5px 0 10px; color: #666;">Rain Jackets with FuseForm by The North Face</p>
+						<a href="#" class="btn secondary">Shop Now</a>
+					</div>	
+		    	</div>
+			</div>
+
+	    	
+	    	<div class="product-grid">
+		    	<div class="product-grid-wrapper">
+			    	<a href="#" class="listing simple same-height" sku="TNF00TG" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="TNF01Z7" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="TNF022N" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="TNF020C" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="TNF2833" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="TNF007Q" cache="true"></a>
+		    	</div>
+	    	</div>
+			<div class="seperator"></div>
+    	</div>
+
+		<!-- Grid Ad 2 -->
+    	<div class="container-lg curated-grid-ad">
+			<div class="col-lg-6" style="margin-top: 10px;">
+		    	<div class="grid-ad-banner center same-height" style="height: 300px; background: url('img/pages/ad-1-12x6.jpg'); background-size: auto 100%; ">
+					<div class="content">
+						<img style="width: 100px; margin: 0 auto 10px;" src="http://content.backcountry.com/promo_upload/bcs/2016/35059/logo.png">
+						<h2 class="white" style="margin-bottom: 15px;">2016 Spring Collection </h2>
+						<a href="#" class="btn white secondary">Shop Now</a>
+					</div>	
+		    	</div>
+			</div>
+	    	
+	    	<div class="product-grid">
+		    	<div class="product-grid-wrapper">
+			    	<a href="#" class="listing simple same-height" sku="BNG0001" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="BNG0016" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="BNG001C" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="BNG001G" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="BNG001I" cache="true"></a>
+			    	<a href="#" class="listing simple same-height" sku="BNG001J" cache="true"></a>
+		    	</div>
+	    	</div>
+
+			<div class="seperator"></div>
+    	</div>
+
+		<!-- Medium Ads 1 -->
+    	<div class="container-lg medium-ad">
+			<div class="col-lg-6" style="margin-top: 10px;">
+		    	<div class="grid-ad-banner right same-height" style="height: 300px; background: url('img/pages/ad-3-12x6.jpg'); background-size: auto 100%; background-position: right center; ">
+					<div class="content">
+						<h2>Introducing Howler Brothers</h2>
+						<p style="font-style: italic; margin: 5px 0 10px; color: #666;">Clothing to heed the call.</p>
+						<a href="#" class="btn secondary">Shop Now</a>
+					</div>	
+		    	</div>
+			</div>
+			
+			
+			<div class="col-lg-6" style="margin-top: 10px;">
+		    	<div class="grid-ad-banner center same-height" style="height: 300px; background: url('img/pages/ad-4-12x6.jpg'); background-size: auto 100%;">
+					<div class="content">
+						<h2 class="white">Take 20% Off <br>One Full Price Item</h2>
+						<p style="font-style: italic; margin: 5px 0 10px; color: #fff;">Limited time Only--Some <br>Exclusions Apply</p>
+						<a href="#" class="btn white secondary">Use Code: Mar20</a>
+					</div>	
+		    	</div>
+			</div>
+    	
+			<div class="seperator"></div>
+    	</div>    	
+  
+		<!-- Best Sellers -->
+    	<div class="container-lg curated-grid-ad">
+	    	
+			<a href="#" class="listing simple same-height">
+			    <div class="listing-details" style="padding-bottom: 50px; padding-top: 40px;">
+			        <div class="listing-exclusive"></div>
+			        <ul class="listing-gallery">
+			            <li class="selected">
+			            <h3>Best Sellers</h3>
+						<p>When you're looking for the best, look not further.</p>
+						<span href="#" class="btn secondary">Shop All</span>
+			        </li>
+			        </ul>
+			        <div class="listing-info">
+			        </div>
+			    </div>
+			</a>	    	
+	    	
+	    	<a href="#" class="listing simple same-height" sku="HOK001A" cache="true"></a>
+	    	<a href="#" class="listing simple same-height" sku="MAR004I" cache="true"></a>
+	    	<a href="#" class="listing simple same-height" sku="ARC3653" cache="true"></a>
+	    	<a href="#" class="listing simple same-height" sku="ARC000Y" cache="true"></a>
+	    	<a href="#" class="listing simple same-height" sku="TNF004G" cache="true"></a>
+	    	<a href="#" class="listing simple same-height" sku="FIB0008" cache="true"></a>
+	    	<a href="#" class="listing simple same-height" sku="PAT00FN" cache="true"></a>
+
+			<div class="seperator" style="border-bottom: none;"></div>
+    	</div>
+
+		<!-- Shop All -->
+	    
+    	<div class="container-lg" style="background: #fff; margin-top: -30px;">
+	    	<div class="col-lg-6" style="margin-top: 40px;">
+		    	<img src="http://placehold.it/700x350?text=Content+Widget">
+	    	</div>
+	    	<div class="col-lg-6" style="margin-top: 40px;">
+		    	<img src="http://placehold.it/700x350?text=Content+Widget">
+	    	</div>
+	    	<div>
+		    	<div class="col-lg-4" style="margin-top: 20px;">
+			    	<img src="http://placehold.it/350x200?text=Content+Widget">
+		    	</div>
+		    	<div class="col-lg-4" style="margin-top: 20px;">
+			    	<img src="http://placehold.it/350x200?text=Content+Widget">
+		    	</div>
+		    	<div class="col-lg-4" style="margin-top: 20px;">
+			    	<img src="http://placehold.it/350x200?text=Content+Widget">
+		    	</div>
+	    	</div>
+	    	
+	    	<div class="clear"></div>
+	    	
+		    <div style="background: #fff;">
+				<div class="shop-all">
+					<span href="#" class="btn secondary">Shop All Men's Clothing</span>
+				</div>
+		    </div>
+	    	
+	    	<div>
+		    	<img style="width: 282px; margin: 0 auto; padding-top: 20px;" src="img/pages/stars.png">
+	    	</div>
+			<div class="seperator"></div>
+    	</div>
+
+
+      
+    </main>  
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script>
+
+	/* Thanks to CSS Tricks for pointing out this bit of jQuery
+	http://css-tricks.com/equal-height-blocks-in-rows/
+	It's been modified into a function called at page load and then each time the page is resized. One large modification was to remove the set height before each new calculation. */
+
+
+var mobileBanner = function() {
+	if (window.matchMedia("(min-width: 600px)").matches) {
+	  /* the viewport is at least 600 pixels wide */
+	  $('.grid-ad-banner').addClass('same-height');
+	} else {
+	  /* the viewport is less than 600 pixels wide */
+	  $('.grid-ad-banner').removeClass('same-height');
+	}
+};
+
+	var equalheight = function(container) {
+	 
+	  var currentTallest = 0,
+	    currentRowStart = 0,
+	    rowDivs = new Array(),
+	    $el,
+	    topPosition = 0;
+	  $(container).each(function() {
+	
+	    $el = $(this);
+	    $($el).height('auto');
+	    topPostion = $el.position().top;
+	
+	    if (currentRowStart != topPostion) {
+	      for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
+	        rowDivs[currentDiv].height(currentTallest);
+	      }
+	      rowDivs.length = 0;
+	      currentRowStart = topPostion;
+	      currentTallest = $el.height();
+	      rowDivs.push($el);
+	    } else {
+	      rowDivs.push($el);
+	      currentTallest = (currentTallest < $el.height()) ? ($el.height()) : (currentTallest);
+	    }
+	    for (currentDiv = 0; currentDiv < rowDivs.length; currentDiv++) {
+	      rowDivs[currentDiv].height(currentTallest);
+	    }
+	  });
+	};
+	
+	$(window).load(function() {
+		mobileBanner();
+		equalheight('.same-height');
+	});
+	
+	$(window).resize(function() {
+		mobileBanner();
+		equalheight('.same-height');
+	});
+	
+</script>
+
+</body>
+</html>

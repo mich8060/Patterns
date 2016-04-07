@@ -567,7 +567,7 @@
 		
 		&-controller {
 			float:right;
-			padding:10px 30px;
+			padding:5px 30px;
 			
 			a:not(.avatar-xs) {
 				border-right:solid 1px colors(gray-4);
@@ -578,8 +578,9 @@
 				}
 			}
 			
-			.avatar-xs {
+			.avatar.sm {
 				margin-left:30px;
+				padding:0;
 			}
 		}
 		

@@ -69,7 +69,7 @@
   src: url("../fonts/bcsicons.eot?#iefix") format("embedded-opentype"), url("../fonts/bcsicons.woff") format("woff"), url("../fonts/bcsicons.ttf") format("truetype"), url("../fonts/bcsicons.svg#bcsicons") format("svg");
 }
 /* Global */
-/* line 73, ../sass/_styles.scss */
+/* line 75, ../sass/_styles.scss */
 html {
   font-size: 18px;
   height: 100%;
@@ -86,12 +86,12 @@ html {
 }
 
 @media only screen and (min-width: 0px) and (max-width: 599px) {
-  /* line 81, ../sass/_styles.scss */
+  /* line 83, ../sass/_styles.scss */
   html {
     font-size: 18px;
   }
 }
-/* line 86, ../sass/_styles.scss */
+/* line 88, ../sass/_styles.scss */
 body {
   font-family: "Conduit",Helvetica, Arial, Sans-Serif;
   font-size: 100%;
@@ -115,7 +115,7 @@ body {
 }
 
 @media only screen and (min-width: 0px) and (max-width: 1000px) {
-  /* line 101, ../sass/_styles.scss */
+  /* line 103, ../sass/_styles.scss */
   body {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -127,7 +127,7 @@ body {
 }
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
   /* Retina-specific body weights & smoothing */
-  /* line 109, ../sass/_styles.scss */
+  /* line 111, ../sass/_styles.scss */
   body {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
@@ -137,57 +137,57 @@ body {
   }
 }
 /* Headlines */
-/* line 115, ../sass/_styles.scss */
+/* line 117, ../sass/_styles.scss */
 h1, h2, h3, h4, h5, .header-0, .header-1, .header-2, .header-3, .header-4 {
   font-weight: 400;
   word-wrap: normal;
 }
-/* line 119, ../sass/_styles.scss */
+/* line 121, ../sass/_styles.scss */
 h1.upper, h2.upper, h3.upper, h4.upper, h5.upper, .header-0.upper, .header-1.upper, .header-2.upper, .header-3.upper, .header-4.upper {
   text-transform: uppercase;
 }
-/* line 123, ../sass/_styles.scss */
+/* line 122, ../sass/_styles.scss */
 h1.lower, h2.lower, h3.lower, h4.lower, h5.lower, .header-0.lower, .header-1.lower, .header-2.lower, .header-3.lower, .header-4.lower {
   text-transform: lowercase;
 }
-/* line 127, ../sass/_styles.scss */
+/* line 123, ../sass/_styles.scss */
 h1.capitalize, h2.capitalize, h3.capitalize, h4.capitalize, h5.capitalize, .header-0.capitalize, .header-1.capitalize, .header-2.capitalize, .header-3.capitalize, .header-4.capitalize {
   text-transform: capitalize;
 }
 
-/* line 132, ../sass/_styles.scss */
-.header-0 {
+/* line 126, ../sass/_styles.scss */
+h1, .header-1 {
   font-size: 36px;
   line-height: 40px;
 }
 
-/* line 137, ../sass/_styles.scss */
-h1, .header-1 {
+/* line 131, ../sass/_styles.scss */
+h2, .header-2 {
   font-size: 32px;
   line-height: 40px;
 }
 
-/* line 142, ../sass/_styles.scss */
-h2, .header-2 {
+/* line 136, ../sass/_styles.scss */
+h3, .header-3 {
   font-size: 28px;
   line-height: 30px;
 }
 
-/* line 147, ../sass/_styles.scss */
-h3, .header-3 {
+/* line 141, ../sass/_styles.scss */
+h4, .header-4 {
   font-size: 24px;
   line-height: 25px;
 }
 
-/* line 152, ../sass/_styles.scss */
-h4, .header-4 {
+/* line 146, ../sass/_styles.scss */
+h5, .header-5 {
   font-size: 18px;
   line-height: 20px;
   text-decoration: none;
 }
 
 /* Hyperlinks */
-/* line 160, ../sass/_styles.scss */
+/* line 154, ../sass/_styles.scss */
 a {
   color: #666666;
   cursor: pointer;
@@ -197,17 +197,17 @@ a {
   -o-transition: color 0.3s ease;
   transition: color 0.3s ease;
 }
-/* line 166, ../sass/_styles.scss */
+/* line 160, ../sass/_styles.scss */
 a.underline {
   text-decoration: underline;
 }
-/* line 170, ../sass/_styles.scss */
+/* line 164, ../sass/_styles.scss */
 a:hover {
   color: #222222;
 }
 
 /* Paragraphs */
-/* line 178, ../sass/_styles.scss */
+/* line 172, ../sass/_styles.scss */
 p {
   hyphenate: auto;
   hyphenate-lines: 3;
@@ -218,86 +218,86 @@ p {
   /* Mozilla based browsers */
   /* Works in Safari */
 }
-/* line 187, ../sass/_styles.scss */
+/* line 181, ../sass/_styles.scss */
 p::-moz-selection {
   background-color: #b4d5fe;
   color: #222;
 }
-/* line 193, ../sass/_styles.scss */
+/* line 187, ../sass/_styles.scss */
 p::selection {
   background-color: #b4d5fe;
   color: #222;
 }
-/* line 198, ../sass/_styles.scss */
-p.large {
+/* line 192, ../sass/_styles.scss */
+p.lg {
   font-size: 24px;
   font-weight: 200;
   line-height: 30px;
 }
-/* line 204, ../sass/_styles.scss */
-p.medium {
+/* line 198, ../sass/_styles.scss */
+p.md {
   font-size: 18px;
   line-height: 30px;
 }
-/* line 210, ../sass/_styles.scss */
+/* line 204, ../sass/_styles.scss */
 p.sm {
   color: #666666;
   font-size: 16px;
   line-height: 20px;
   margin: 10px 0;
 }
-/* line 217, ../sass/_styles.scss */
+/* line 211, ../sass/_styles.scss */
 p.xs {
   color: #999999;
   font-size: 13px;
   line-height: 14px;
   margin: 5px 0;
 }
-/* line 224, ../sass/_styles.scss */
+/* line 218, ../sass/_styles.scss */
 p:before, p:after {
   content: "";
   display: block;
   height: 0px;
   margin: 0;
 }
-/* line 232, ../sass/_styles.scss */
+/* line 226, ../sass/_styles.scss */
 p.short:empty {
   display: block;
 }
-/* line 235, ../sass/_styles.scss */
+/* line 229, ../sass/_styles.scss */
 p.short:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper.";
   display: block;
   height: auto;
 }
-/* line 242, ../sass/_styles.scss */
+/* line 236, ../sass/_styles.scss */
 p.medium:empty {
   display: block;
 }
-/* line 245, ../sass/_styles.scss */
+/* line 239, ../sass/_styles.scss */
 p.medium:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus.";
   display: block;
   height: auto;
 }
-/* line 252, ../sass/_styles.scss */
+/* line 246, ../sass/_styles.scss */
 p.long:empty {
   display: block;
 }
-/* line 255, ../sass/_styles.scss */
+/* line 249, ../sass/_styles.scss */
 p.long:empty:before {
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In cursus justo sit amet purus bibendum, a tincidunt magna ullamcorper. Aliquam erat volutpat. Donec id varius tortor, eu semper enim. Nulla dictum et turpis a congue. Vivamus vel justo eget ex tincidunt efficitur non quis tellus. Mauris ornare bibendum ex, at maximus diam porttitor quis. Nam fermentum massa in imperdiet vestibulum. Curabitur mattis lectus efficitur dignissim tempor.";
   display: block;
   height: auto;
 }
-/* line 262, ../sass/_styles.scss */
+/* line 256, ../sass/_styles.scss */
 p a:not(.btn) {
   margin: -.5em;
   padding: .5em;
   position: relative;
 }
 
-/* line 269, ../sass/_styles.scss */
+/* line 263, ../sass/_styles.scss */
 .hint {
   color: #999999;
   font-size: 14px;
@@ -305,7 +305,7 @@ p a:not(.btn) {
   font-weight: light;
 }
 
-/* line 275, ../sass/_styles.scss */
+/* line 269, ../sass/_styles.scss */
 .mouse {
   color: #222222;
   font-size: 14px;
@@ -313,164 +313,480 @@ p a:not(.btn) {
   font-weight: light;
 }
 
-/* line 282, ../sass/_styles.scss */
+/* line 276, ../sass/_styles.scss */
 b, strong, caption, th, thead, dt, legend {
   font-weight: 'bold';
 }
 
 /* Lists */
-/* line 288, ../sass/_styles.scss */
+/* line 280, ../sass/_styles.scss */
 ul, ol {
   margin: 20px 0 20px 16px;
 }
-/* line 291, ../sass/_styles.scss */
+/* line 283, ../sass/_styles.scss */
 ul li, ol li {
   list-style: disc outside;
 }
-/* line 295, ../sass/_styles.scss */
+/* line 287, ../sass/_styles.scss */
 ul ol, ul ul, ol ol, ol ul {
   margin: 0 0 0 20px;
 }
 
-/* line 301, ../sass/_styles.scss */
+/* line 293, ../sass/_styles.scss */
 ol li {
   list-style: decimal outside;
 }
 
 /* line 5, ../sass/guide.scss */
-body {
-  background: #f4f4f4;
+body.guide-open {
+  overflow: hidden;
+}
+/* line 11, ../sass/guide.scss */
+body.guide-open .guide-header, body.guide-open .guide-header + .container-lg {
+  -webkit-transform: translateX(280px);
+  -moz-transform: translateX(280px);
+  -ms-transform: translateX(280px);
+  -o-transform: translateX(280px);
+  transform: translateX(280px);
+}
+/* line 16, ../sass/guide.scss */
+body.guide-open .guide:before {
+  background: rgba(34, 34, 34, 0.5);
+  left: 280px;
+  opacity: 1;
+  visibility: visible;
 }
 
-/* line 9, ../sass/guide.scss */
-.header {
+/* line 25, ../sass/guide.scss */
+.guide {
   background: #FFFFFF;
-  border-bottom: solid 1px #efefef;
+  position: relative;
 }
-/* line 13, ../sass/guide.scss */
-.header a {
-  display: inline-block;
-  /* For normal, healthy browsers */
-  padding: 15px 20px;
-}
-/* line 58, ../sass/_mixins.scss */
-* html .header a {
-  /* for IE6 */
-  display: inline;
-}
-/* line 62, ../sass/_mixins.scss */
-* + html .header a {
-  /* for IE7 */
-  display: inline;
-}
-/* line 17, ../sass/guide.scss */
-.header a.selected {
-  border-bottom: solid 1px #222222;
-}
-/* line 22, ../sass/guide.scss */
-.header img {
-  border-right: solid 1px #efefef;
-  float: left;
-  width: 80px;
-}
-
-/* line 28, ../sass/guide.scss */
-.navigation {
-  background: #FFFFFF;
-  margin: 0 0 20px 0;
-}
-/* line 32, ../sass/guide.scss */
-.navigation a {
-  display: inline-block;
-  /* For normal, healthy browsers */
-  padding: 15px;
-}
-/* line 58, ../sass/_mixins.scss */
-* html .navigation a {
-  /* for IE6 */
-  display: inline;
-}
-/* line 62, ../sass/_mixins.scss */
-* + html .navigation a {
-  /* for IE7 */
-  display: inline;
-}
-/* line 36, ../sass/guide.scss */
-.navigation a.downloads {
-  float: right;
-}
-/* line 40, ../sass/guide.scss */
-.navigation a.selected {
-  font-weight: 700;
-}
-
-/* line 46, ../sass/guide.scss */
-table {
-  background: #FFFFFF;
-  border: solid 1px #c2c2c2;
-  border-collapse: collapse;
-  margin: 20px 0;
-  text-align: left;
-}
-/* line 54, ../sass/guide.scss */
-table tr:nth-child(odd) {
-  background: #f4f4f4;
-}
-/* line 58, ../sass/guide.scss */
-table tr th, table tr td {
-  border: none;
-  padding: 5px 10px;
-  vertical-align: top;
-}
-
-/* line 66, ../sass/guide.scss */
-.iconography {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-/* line 71, ../sass/guide.scss */
-.iconography li {
-  background: #FFFFFF;
-  cursor: pointer;
+/* line 29, ../sass/guide.scss */
+.guide:before {
+  background: rgba(34, 34, 34, 0);
+  bottom: 0;
+  content: "";
   display: block;
-  float: left;
-  list-style-type: none;
-  margin: 10px;
-  padding: 20px;
-  text-align: center;
-  width: calc(20% - 20px);
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+  z-index: 999999;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+/* line 45, ../sass/guide.scss */
+.guide-hamburger {
+  bottom: 0;
+  left: 0;
+  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 40px;
+  position: fixed;
+  top: 0;
+  width: 280px;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 83, ../sass/guide.scss */
-.iconography li .icons {
+/* line 58, ../sass/guide.scss */
+.guide-hamburger a {
+  border-bottom: solid 1px #efefef;
+  display: block;
+  font-size: 20px;
+  padding: 10px;
+}
+/* line 66, ../sass/guide.scss */
+.guide-header {
+  background: #FFFFFF;
+  border-top: solid 3px #222222;
+  border-bottom: solid 1px #efefef;
+  left: 0;
+  margin: 0 0 40px 0;
+  padding: 0 40px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+/* line 79, ../sass/guide.scss */
+.guide-header .brand {
+  display: block;
+  position: relative;
+  margin-right: 20px;
+}
+/* line 80, ../sass/guide.scss */
+.guide-header .hamburger {
+  display: none;
+  position: relative;
+}
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  /* line 66, ../sass/guide.scss */
+  .guide-header {
+    padding: 0;
+  }
+  /* line 84, ../sass/guide.scss */
+  .guide-header .brand {
+    display: none;
+  }
+  /* line 85, ../sass/guide.scss */
+  .guide-header .hamburger {
+    display: block;
+  }
+}
+/* line 88, ../sass/guide.scss */
+.guide-header + .container-full {
+  background: #FFFFFF;
+  -webkit-transition: transform 0.3s ease;
+  -moz-transition: transform 0.3s ease;
+  -ms-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  /* line 66, ../sass/guide.scss */
+  .guide-header {
+    padding: 0;
+  }
+  /* line 96, ../sass/guide.scss */
+  .guide-header .brand {
+    display: none;
+  }
+  /* line 97, ../sass/guide.scss */
+  .guide-header .hamburger {
+    display: block;
+  }
+}
+/* line 100, ../sass/guide.scss */
+.guide-header img {
+  border-left: solid 1px #efefef;
+  border-bottom: solid 1px #efefef;
+  border-right: solid 1px #efefef;
+  bottom: 0;
+  display: block;
+  float: left;
+  position: absolute;
+  top: 0;
+  width: 79px;
+}
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  /* line 100, ../sass/guide.scss */
+  .guide-header img {
+    border: none;
+    position: static;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  /* line 100, ../sass/guide.scss */
+  .guide-header img {
+    border: none;
+    position: static;
+  }
+}
+/* line 123, ../sass/guide.scss */
+.guide-load {
+  max-width: 700px;
+}
+/* line 126, ../sass/guide.scss */
+.guide-load.full {
+  max-width: 100%;
+}
+/* line 131, ../sass/guide.scss */
+.guide-nav {
+  margin-left: 82px;
+}
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  /* line 131, ../sass/guide.scss */
+  .guide-nav {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  /* line 131, ../sass/guide.scss */
+  .guide-nav {
+    display: none;
+  }
+}
+/* line 142, ../sass/guide.scss */
+.guide-nav a {
+  border-right: solid 1px #efefef;
+  display: block;
+  float: left;
+  margin-bottom: -1px;
+  padding: 14px 30px;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 151, ../sass/guide.scss */
+.guide-nav a.downloads {
+  border-left: solid 1px #efefef;
+  float: right;
+}
+/* line 156, ../sass/guide.scss */
+.guide-nav a.selected {
+  border-bottom: solid 1px #222222;
+  color: #222222;
+}
+/* line 163, ../sass/guide.scss */
+.guide-main {
+  background: #FFFFFF;
+  padding: 100px 40px 100px 320px;
+  margin: 0 auto;
+  min-width: 280px;
+  max-width: 1400px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 171, ../sass/guide.scss */
+.guide-main.full {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 100px 40px;
+}
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  /* line 163, ../sass/guide.scss */
+  .guide-main {
+    margin: 0 20px;
+    padding: 80px 0;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  /* line 163, ../sass/guide.scss */
+  .guide-main {
+    margin: 0 20px;
+    padding: 80px 0;
+  }
+}
+/* line 188, ../sass/guide.scss */
+.guide-menu {
+  background: #FDFDFD;
+  border: solid 1px #E8E8Eb;
+  bottom: 60px;
+  display: block;
+  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: fixed;
+  top: 100px;
+  width: 240px;
+  -webkit-transition: height 0.3s ease;
+  -moz-transition: height 0.3s ease;
+  -ms-transition: height 0.3s ease;
+  -o-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+  -webkit-overflow-scrolling: touch;
+  -moz-overflow-scrolling: touch;
+  -ms-overflow-scrolling: touch;
+  -o-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  /* line 188, ../sass/guide.scss */
+  .guide-menu {
+    display: none;
+  }
+}
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+  /* line 188, ../sass/guide.scss */
+  .guide-menu {
+    display: none;
+  }
+}
+@media only screen and (min-width: 900px) and (max-width: 1100px) {
+  /* line 188, ../sass/guide.scss */
+  .guide-menu {
+    left: 40px;
+  }
+}
+@media only screen and (min-width: 1101px) {
+  /* line 188, ../sass/guide.scss */
+  .guide-menu {
+    -webkit-transform: translateX(-280px);
+    -moz-transform: translateX(-280px);
+    -ms-transform: translateX(-280px);
+    -o-transform: translateX(-280px);
+    transform: translateX(-280px);
+  }
+}
+/* line 218, ../sass/guide.scss */
+.guide-menu .aside-site {
+  background: #FFFFFF;
+  color: #222222;
+}
+/* line 223, ../sass/guide.scss */
+.guide-menu a {
+  background: #FDFDFD;
+  border-bottom: solid 1px #E8E8E8;
+  display: block;
+  padding: 15px;
+  -webkit-transition: color 0.3s ease;
+  -moz-transition: color 0.3s ease;
+  -ms-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+/* line 230, ../sass/guide.scss */
+.guide-menu a:after {
+  content: "\E002";
+  display: block;
+  float: right;
+  font-family: "bcsicons";
+  font-size: 16px;
+  height: 20px;
+  opacity: 0;
+  width: 20px;
+  text-align: center;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: opacity, transform;
+  -moz-transition-property: opacity, transform;
+  -ms-transition-property: opacity, transform;
+  -o-transition-property: opacity, transform;
+  transition-property: opacity, transform;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -ms-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+}
+/* line 248, ../sass/guide.scss */
+.guide-menu a:hover:after {
+  opacity: 1;
+}
+/* line 253, ../sass/guide.scss */
+.guide-menu a + .tier {
+  display: none;
+}
+/* line 258, ../sass/guide.scss */
+.guide-menu a.active:after {
+  opacity: 1;
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+/* line 263, ../sass/guide.scss */
+.guide-menu a.active + .tier {
+  display: block;
+}
+/* line 270, ../sass/guide.scss */
+.guide-menu .tier {
+  background: #FFFFFF;
+  border-bottom: solid 1px #efefef;
+  padding: 15px;
+}
+/* line 275, ../sass/guide.scss */
+.guide-menu .tier a {
+  background: transparent;
+  border: none;
+  color: #666666;
+  padding: 5px 0;
+}
+/* line 281, ../sass/guide.scss */
+.guide-menu .tier a:after {
+  display: none;
+}
+/* line 285, ../sass/guide.scss */
+.guide-menu .tier a:hover {
+  color: #222222;
+}
+
+/* line 295, ../sass/guide.scss */
+.iconography {
+  list-style-type: none;
+  margin: 20px 0;
+  padding: 0;
+}
+/* line 300, ../sass/guide.scss */
+.iconography li {
+  background: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  float: left;
+  list-style-type: none;
+  padding: 20px;
+  text-align: center;
+  width: 20%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+@media only screen and (min-width: 0px) and (max-width: 599px) {
+  /* line 300, ../sass/guide.scss */
+  .iconography li {
+    width: 33.33%;
+  }
+}
+/* line 315, ../sass/guide.scss */
+.iconography li .bcsicons {
   display: inline-block;
   /* For normal, healthy browsers */
   margin-bottom: 20px;
 }
-/* line 58, ../sass/_mixins.scss */
-* html .iconography li .icons {
+/* line 55, ../sass/_mixins.scss */
+* html .iconography li .bcsicons {
   /* for IE6 */
   display: inline;
 }
-/* line 62, ../sass/_mixins.scss */
-* + html .iconography li .icons {
+/* line 59, ../sass/_mixins.scss */
+* + html .iconography li .bcsicons {
   /* for IE7 */
   display: inline;
 }
-/* line 88, ../sass/guide.scss */
+/* line 319, ../sass/guide.scss */
+.iconography li .bcsicons:before {
+  color: #222222;
+}
+/* line 324, ../sass/guide.scss */
 .iconography li p {
-  color: #999999;
+  color: #222222;
   font-size: 12px;
   line-height: 15px;
   margin: 0;
 }
-/* line 94, ../sass/guide.scss */
+/* line 330, ../sass/guide.scss */
 .iconography li p.unicode {
   color: #222222;
   font-size: 16px;
+}
+/* line 335, ../sass/guide.scss */
+.iconography li p.title {
+  white-space: nowrap;
 }

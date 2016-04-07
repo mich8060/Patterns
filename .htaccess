@@ -15,4 +15,7 @@ RewriteCond %{REQUEST_URI} !.*\.gif$ [NC]
 RewriteCond %{REQUEST_URI} !.*\.js$ [NC]
 RewriteCond %{REQUEST_URI} !.*/fonts [NC]
 RewriteCond %{REQUEST_URI} !.*/proxy [NC]
+RewriteCond %{REQUEST_URI} !.*/play [NC]
+RewriteCond %{REQUEST_URI} !.*/downloads [NC]
+RewriteCond %{REQUEST_URI} !.*/_ [NC]
 RewriteRule .* index.php

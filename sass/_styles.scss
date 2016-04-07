@@ -12,7 +12,9 @@ $colors: (
 	gray-2: #999999,
 	gray-3: #c2c2c2,
 	gray-4: #efefef,
-	gray-5: #f4f4f4
+	gray-5: #f4f4f4,
+	guide-1:#E8E8E8,
+	guide-2:#FDFDFD
 );
 
 $colorFamily: (
@@ -116,40 +118,32 @@ h1, h2, h3, h4, h5, .header-0, .header-1, .header-2, .header-3, .header-4 {
 	font-weight:400; 
 	word-wrap:normal;
 	
-	&.upper {
-		text-transform:uppercase;
-	}
-	
-	&.lower {
-		text-transform:lowercase;
-	}
-	
-	&.capitalize {
-		text-transform:capitalize;
-	}
+	&.upper { text-transform:uppercase; }
+	&.lower { text-transform:lowercase; }
+	&.capitalize { text-transform:capitalize; }
 }
 
-.header-0 {
+h1, .header-1 {
 	font-size: 36px;
 	line-height: 40px;
 }
 
-h1, .header-1 {
+h2, .header-2 {
 	font-size: 32px;
 	line-height: 40px;
 }
 
-h2, .header-2 {
+h3, .header-3 {
 	font-size: 28px;
 	line-height: 30px;
 }
 
-h3, .header-3 {
+h4, .header-4 {
 	font-size: 24px;
 	line-height: 25px;
 }
 
-h4, .header-4 {
+h5, .header-5 {
 	font-size: 18px;
 	line-height: 20px;
 	text-decoration:none;
@@ -195,13 +189,13 @@ p {
 	       color: #222;
 	}
 	
-	&.large {
+	&.lg {
 	  	font-size: 24px;
 		font-weight:200;
 	  	line-height: 30px;
 	}
 	
-	&.medium {
+	&.md {
 	  	font-size: 18px;
   		line-height: 30px;
 		
@@ -279,9 +273,7 @@ p {
 	font-weight:light;
 }
 
-b, strong, caption, th, thead, dt, legend { 
-	font-weight:'bold';
-}
+b, strong, caption, th, thead, dt, legend {  font-weight:'bold'; }
 
 
 /* Lists */

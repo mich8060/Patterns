@@ -4,7 +4,9 @@
 	By: Michael Stevens
 */
 .avatar {
-  	background:url("https://avatars0.githubusercontent.com/u/189713?v=3&s=460") no-repeat center center;
+  	background-image:url("https://avatars0.githubusercontent.com/u/189713?v=3&s=460");
+	background-repeat:no-repeat;
+	background-position:center center;
   	background-size:cover;
   	cursor: pointer;
   	@include inline-block;
@@ -14,6 +16,71 @@
   	width: 60px;
 	@include prefix("border-radius",50%);
 	
+	&-group {
+		display:block;
+		float:left;
+		margin:20px 0;
+		
+		&:hover {
+			.avatar {
+				&:last-of-type {
+					margin-left:-5px;
+				}
+			}
+		}
+		
+		&-info {
+			color:colors(gray-1);
+			float:left;
+			font-size:14px;
+			line-height:14px;
+			padding:7px 5px;
+			
+			strong {
+				color:colors(black);
+				display:block;
+				font-size:15px;
+			}
+		}
+		
+		.avatar {
+			border:solid 3px colors(white);
+			float:left;
+			margin-left:-15px;
+			position:relative;
+			@include prefix("transition", margin 0.3s ease);
+			
+			&:after {
+				background:colors(blue);
+				border: solid 3px #fff;
+				bottom:-2px;
+				content:"";
+				display: block;
+				height: 6px;
+				position: absolute;
+				right:-2px;
+				width:6px;
+				z-index:999;
+			    animation: pulse 4s infinite;
+			    animation-delay: 0.5s;
+				@include prefix("border-radius",6px);
+			}
+			
+			&:first-of-type {
+				margin-left:0;
+			}
+			
+			&:last-of-type {
+				margin-right:10px;
+			}
+		}
+	}
+	
+	&.male { background-image:url("http://iris.backcountry.com/image/view/p1255028/440/440"); }
+	&.female { background-image:url("http://iris.backcountry.com/image/view/p1165415/900/900"); }
+	&.gearhead-male { background-image:url("http://iris.backcountry.com/image/view/p1237322/440/440"); }
+	&.gearhead-female { background-image:url("http://iris.backcountry.com/image/view/p1315107/440/440"); }
+	
 	a {
 	  	display: block;
 	  	height: 100%;
@@ -21,27 +88,23 @@
 	  	width: 100%;
 	}
 	
-	&-lg {
-		@extend .avatar;
+	&.lg {
   		border: solid 5px colors(black);
 	  	height: 160px;
 	  	width: 160px;
 	}
 	
-	&-md {
-		@extend .avatar;
+	&.md {
 	  	height: 80px;
 	  	width: 80px;
 	}
 	
-	&-sm {
-		@extend .avatar;
-	  	height: 50px;
-	  	width: 50px;
+	&.sm {
+	  	height: 40px;
+	  	width: 40px;
 	}
 	
-	&-xs {
-		@extend .avatar;
+	&.xs {
 	  	height: 30px;
 	  	width: 30px;
 	}
@@ -369,12 +432,11 @@ a {
 	font-weight:bold;
 	line-height:20px;
 	margin:0 10px;
-	padding:1px 10px 0 10px;
+	padding:0 5px;
 	position:relative;
 	text-transform:uppercase;
 	top:-1px;
 	vertical-align:middle;
-	@include prefix("border-radius", 50px);
 }
 
 /*  
@@ -535,6 +597,8 @@ a {
 	}
 }
 
+
+
 /*  
 	Hard Line Styles
 	Last Edited: August 14, 2015
@@ -542,7 +606,7 @@ a {
 */
 
 
-hr {
+hr, .line {
     border: 0;
     height: 0;
     border-top:solid 1px colors(gray-4);
@@ -552,7 +616,14 @@ hr {
 	
 	&.contrast {
 		border-top:solid 1px colors(gray-2);
-	    border-bottom:solid 1px colors(gray-2);
+	    border-bottom:none;
+	}
+	
+	&.debug {
+		border-top:solid 1px colors(gray-2);
+		display:block;
+		margin:0;
+		outline:none;
 	}
 	
 	&.xs {
@@ -569,6 +640,67 @@ hr {
 	
 	&.lg {
 		width: 500px;
+	}
+}
+
+/*  
+	Example Styles
+	Last Edited: April, 2016
+	By: Michael Stevens
+*/
+
+.examples {
+	border:solid 1px colors(gray-4);
+	margin:20px 0 40px 0;
+	padding:10px 10px 20px 10px;
+	position:relative;
+	
+	&:after {
+		clear:both;
+		content:"";
+		display:block;
+	};
+}
+
+/*  
+	Colors
+	Last Edited: April 1, 2016
+	By: Michael Stevens
+*/
+
+.swatch {
+	position:relative;
+	margin:10px 0;
+	@include aspect-ratio(5,3);
+	
+	&.black { background:colors(black); }
+	&.blue { background:colors(blue); }
+	&.red { background:colors(red); }
+	&.orange { background:colors(orange); }
+	&.green { background:colors(green); }
+	&.white { background:colors(white); outline:solid 1px colors(gray-4); }
+	&.gray-1 { background:colors(gray-1); }
+	&.gray-2 { background:colors(gray-2); }
+	&.gray-3 { background:colors(gray-3); }
+	&.gray-4 { background:colors(gray-4); }
+	&.gray-5 { background:colors(gray-5); }
+	
+	&-family {
+		margin:10px 0;
+		@include aspect-ratio(6,3);
+		
+		&.beige{background:colorFamily(beige);border:solid 1px colorFamily(beige);}
+		&.black{background:colorFamily(black);border:solid 1px colorFamily(black);}
+		&.blue{background:colorFamily(blue);border:solid 1px colorFamily(blue);}
+		&.brown{background:colorFamily(brown);border:solid 1px colorFamily(brown);}
+		&.gray{background:colorFamily(gray);border:solid 1px colorFamily(gray);}
+		&.green{background:colorFamily(green);border:solid 1px colorFamily(green);}
+		&.orange{background:colorFamily(orange);border:solid 1px colorFamily(orange);}
+		&.pink{background:colorFamily(pink);border:solid 1px colorFamily(pink);}
+		&.purple{background:colorFamily(purple);border:solid 1px colorFamily(purple);}
+		&.red{background:colorFamily(red);border:solid 1px colorFamily(red);}
+		&.white{background:colorFamily(white); border:solid 1px colors(gray-3)}
+		&.yellow{background:colorFamily(yellow);border:solid 1px colorFamily(yellow);}
 	}
 }
 
@@ -842,6 +974,129 @@ input[type="radio"] {
 	}
 }
 
+
+/*  
+	Review Star Ratings
+	Last Edited: January 25, 2016
+	By: Michael Stevens
+*/
+.rating {
+	height:20px;
+	position:relative;
+	@include inline-block;
+	width:55px;
+	@include prefix("font-smoothing",antialiased);	
+	@include prefix("text-rendering",optimizeLegibility);	
+	
+	&:before {
+		content:"\2605 \2605 \2605 \2605 \2605";
+		color:colors(black);
+		display:block;
+		font-size:10px;
+		letter-spacing:0.1em;
+		left:0;
+		overflow:hidden;
+		position:absolute;
+		right:0;
+		top:0;
+		white-space: nowrap;
+		z-index:9;
+	}
+	
+	&:after {
+		content:"\2605 \2605 \2605 \2605 \2605";
+		color:colors(gray-4);
+		display:block;
+		font-size:10px;
+		letter-spacing:0.1em;
+		left:0;
+		position:absolute;
+		right:0;
+		top:0;
+		white-space: nowrap;
+	}
+	
+	&[rating="4.5"]{
+		&:before {
+			width:89%;
+		}
+	}
+	
+	&[rating="4"]{
+		&:before {
+			width:80%;
+		}
+	}
+	
+	&[rating="3.5"]{
+		&:before {
+			width:69%;
+		}
+	}
+	
+	&[rating="3"]{
+		&:before {
+			width:60%;
+		}
+	}
+	
+	&[rating="2.5"]{
+		&:before {
+			width:49%;
+		}
+	}
+	
+	&[rating="2"]{
+		&:before {
+			width:40%;
+		}
+	}
+	
+	&[rating="1.5"]{
+		&:before {
+			width:29%;
+		}
+	}
+	
+	&[rating="1"]{
+		&:before {
+			width:20%;
+		}
+	}
+	
+	&[rating="0.5"]{
+		&:before {
+			width:9%;
+		}
+	}
+	
+	&[rating="0"]{
+		opacity:0;
+		visibility:hidden;
+	}
+	
+	&.md {
+		height:20px;
+		width:85px;
+		
+		&:before,
+		&:after {
+			font-size:16px;
+			letter-spacing:0.05em;
+		}
+	}
+	
+	&.lg {
+		height:25px;
+		width:115px;
+		
+		&:before,
+		&:after {
+			font-size:22px;
+			letter-spacing:0.05em;
+		}
+	}
+}
 
 /* Select */
 select {

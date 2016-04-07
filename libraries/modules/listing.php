@@ -13,6 +13,7 @@
             <div class="listing-info-rating">
                 <div class="rating" rating="{reviews}"></div>
             </div>
+			<div class="listing-tag">Tag</div>
         </div>
     </div>
 </a>

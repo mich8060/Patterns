@@ -2,70 +2,299 @@
 @import 'mixins';
 @import 'functions';
 
-body {
-	background:colors(gray-5);
-}
-
-.header {
-	background:colors(white);
-	border-bottom:solid 1px colors(gray-4);
+body.guide-open {
+	overflow:hidden;
 	
-	a {
-		@include inline-block;
-		padding:15px 20px;
+	.guide {
 		
-		&.selected {
-			border-bottom:solid 1px colors(black);
-		}
-	}
-	
-	img {
-		border-right:solid 1px colors(gray-4);
-		float:left;
-		width:80px;
-	}
-}
-.navigation {
-	background:colors(white);
-	margin:0 0 20px 0;
-	
-	a {
-		@include inline-block;
-		padding:15px;
 		
-		&.downloads {
-			float:right;
+		&-header,
+		&-header + .container-lg { 
+			@include prefix("transform", translateX(280px));
 		}
 		
-		&.selected {
-			font-weight:700;
-		}
+		&:before {
+			background:rgba(colors(black),0.5);
+			left:280px;
+			opacity:1;
+			visibility:visible;
+		};
 	}
 }
 
-table {
+.guide {
 	background:colors(white);
-	border:solid 1px colors(gray-3);
-	border-collapse: collapse;
-	margin:20px 0;
-	text-align:left;
+	position:relative;
 	
-	tr {
-		&:nth-child(odd){
-			background:colors(gray-5);
+	&:before {
+		background:rgba(colors(black),0);
+		bottom:0;
+		content:"";
+		display:block;
+		left:0;
+		opacity:0;
+		position:fixed;
+		top:0;
+		right:0;
+		visibility:hidden;
+		z-index:999999;
+		
+		@include prefix("transition", all 0.3s ease);
+	};
+	
+	&-hamburger {
+		bottom:0;
+		left:0;
+		overflow:scroll;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding:40px;
+		position:fixed;
+		top:0;
+		width:280px;
+		@include prefix("overflow-scrolling",touch);
+		@include prefix('box-sizing',border-box);
+		
+		a {
+			border-bottom:solid 1px colors(gray-4);
+			display:block;
+			font-size:20px;
+			padding:10px;
+		}
+	}
+	
+	&-header {
+		background:colors(white);
+		border-top:solid 3px colors(black);
+		border-bottom:solid 1px colors(gray-4);
+		left:0;
+		margin:0 0 40px 0;
+		padding:0 40px;
+		position:fixed;
+		right:0;
+		top:0;
+		z-index:99999;
+		@include prefix("transition", transform 0.3s ease);
+		
+		.brand { display:block; position:relative; margin-right:20px; }
+		.hamburger { display:none; position:relative; }
+		
+		@include breakpoint(mobile){
+			padding:0;
+			.brand { display:none; }
+			.hamburger { display:block; }
 		}
 		
-		th, td {
-			border:none;
-			padding:5px 10px;
-			vertical-align:top;
+		& + .container-full {
+			background:colors(white);
+			@include prefix("transition", transform 0.3s ease);
+		}
+		
+		
+		@include breakpoint(portrait){
+			padding:0;
+			.brand { display:none; }
+			.hamburger { display:block; }
+		}
+
+		img {
+			border-left:solid 1px colors(gray-4);
+			border-bottom:solid 1px colors(gray-4);
+			border-right:solid 1px colors(gray-4);
+			bottom:0;
+			display:block;
+			float:left;
+			position:absolute;
+			top:0;
+			width:79px;
+			
+			@include breakpoint(mobile){
+				border:none;
+				position:static;
+			}
+			
+			@include breakpoint(portrait){
+				border:none;
+				position:static;
+			}
+		}
+	}
+
+	&-load {
+		max-width:700px;
+		
+		&.full {
+			max-width:100%;
+		}
+	}
+	
+	&-nav {
+		margin-left:82px;
+		
+		@include breakpoint(mobile){
+			display:none;
+		}
+		
+		@include breakpoint(portrait){
+			display:none;
+		}
+		
+		a {
+			border-right:solid 1px colors(gray-4);
+			display:block;
+			float:left;
+			margin-bottom:-1px;
+			padding:14px 30px;
+			text-align:center;
+			@include prefix('box-sizing',border-box);
+			
+			&.downloads {
+				border-left:solid 1px colors(gray-4);
+				float:right;
+			}
+			
+			&.selected {
+				border-bottom:solid 1px colors(black);
+				color:colors(black);
+			}
+		}
+	}
+	
+	&-main {
+		background:colors(white);
+		padding:100px 40px 100px 320px;
+		margin:0 auto;
+		min-width:280px;
+		max-width:1400px;
+		@include prefix('box-sizing',border-box);
+		
+		&.full {
+			margin:0 auto;
+			max-width:1400px;
+			padding:100px 40px;
+		}
+		
+		@include breakpoint(mobile){
+			margin:0 20px;
+			padding:80px 0;
+		}
+		
+		@include breakpoint(portrait){
+			margin:0 20px;
+			padding:80px 0;
+		}
+	}
+	
+	&-menu {
+		background:#FDFDFD;
+		border:solid 1px #E8E8Eb;
+		bottom:60px;
+		display:block;
+		overflow:scroll; 
+		overflow-y: scroll; 
+		overflow-x: hidden;
+		position:fixed;
+		top:100px;
+		width:240px;
+		@include prefix("transition", height 0.3s ease);
+		@include prefix("overflow-scrolling",touch);
+		
+		@include breakpoint(mobile){
+			display:none;
+		}
+		
+		@include breakpoint(portrait){
+			display:none;
+		}
+		
+		@include breakpoint(landscape){
+			left:40px;
+		}
+		
+		@include breakpoint(desktop){
+			@include prefix("transform",translateX(-280px));
+		}
+		
+		.aside-site {
+			background:colors(white);
+			color:colors(black);
+		}
+
+		a {
+			background:colors(guide-2);
+			border-bottom:solid 1px colors(guide-1);
+			display:block;
+			padding:15px;
+			@include prefix("transition", color 0.3s ease);
+
+			&:after {
+				content:"\E002";
+				display:block;
+				float:right;
+				font-family:"bcsicons";
+				font-size:16px;
+				height:20px;
+				opacity:0;
+				width:20px;
+				text-align:center;
+
+				@include prefix("transition-duration", 0.3s);
+				@include prefix("transition-property", (opacity, transform));
+				@include prefix("transition-timing-function", ease);
+				@include prefix("transform",rotate(0deg));
+			}
+
+			&:hover {
+				&:after {
+					opacity:1;
+				}
+			}
+
+			& + .tier {
+				display:none;
+			}
+
+			&.active {
+				&:after {
+					opacity:1;
+					@include prefix("transform",rotate(180deg));	
+				}
+
+				& + .tier {
+					display:block;
+				}
+			}
+
+		}
+
+		.tier {
+			background:colors(white);
+			border-bottom:solid 1px colors(gray-4);
+			padding:15px;
+
+			a {
+				background:transparent;
+				border:none;
+				color:colors(gray-1);
+				padding:5px 0;
+
+				&:after {
+					display:none;
+				}
+
+				&:hover {
+					color:colors(black);
+				}
+			}
 		}
 	}
 }
+
+
 
 .iconography {
 	list-style-type:none;
-	margin:0;
+	margin:20px 0;
 	padding:0;
 	
 	li {
@@ -74,19 +303,26 @@ table {
 		display:block;
 		float:left;
 		list-style-type:none;
-		margin:10px;
 		padding:20px;
 		text-align:center;
-		width:calc(20% - 20px);
+		width:20%;
 		@include prefix('box-sizing',border-box);
 		
-		.icons {
+		@include breakpoint(mobile){
+			width:33.33%;
+		}
+		
+		.bcsicons {
 			@include inline-block;
 			margin-bottom:20px;
+			
+			&:before {
+				color:colors(black);
+			}
 		}
 		
 		p {
-			color:colors(gray-2);
+			color:colors(black);
 			font-size:12px;
 			line-height:15px;
 			margin:0;
@@ -94,6 +330,10 @@ table {
 			&.unicode {
 				color:colors(black);
 				font-size:16px;
+			}
+			
+			&.title {
+				white-space: nowrap;
 			}
 		}
 	}

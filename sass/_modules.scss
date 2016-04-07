@@ -33,6 +33,8 @@
 	}
 }
 
+
+
 .product-gallery {
 	@include inline-block;
 	float: left;
@@ -68,8 +70,7 @@
 			}
 			
 			&-image {
-				padding:0 150px;
-				width:88.9%;
+				cursor:zoom-out;
 			}
 		}
 	}
@@ -95,6 +96,7 @@
 	&-details {
 		@include inline-block;
 		float:left;
+		position:absolute;
 		text-align:center;
 		width:155px;
 		@include prefix("transition", all 0.25s ease);
@@ -123,9 +125,8 @@
 	
 	&-image {
 		cursor:zoom-in;
-		@include inline-block;
-		float: left;
-		width: 83.33333333%;
+		display:block;
+		margin-left:155px;
 		@include prefix('box-sizing',border-box);
 		@include prefix("transition", all 0.3s ease);
 		
@@ -182,93 +183,7 @@
 }
 
 
-/*  
-	Aside Styles
-	Last Edited: January 26, 2016
-	By: Michael Stevens
-*/
 
-aside {
-	background:colors(white);
-	display:block;
-	overflow:scroll; 
-	overflow-y: scroll; 
-	overflow-x: hidden;
-	position:absolute;
-	width:240px;
-	
-	@include prefix("overflow-scrolling",touch);
-	
-	&.fixed {
-		position:fixed;
-		top:20px;
-	}
-	
-	a {
-		border-bottom:solid 1px colors(gray-4);
-		display:block;
-		padding:15px;
-		@include prefix("transition", color 0.3s ease);
-		
-		&:after {
-			content:"\E75C";
-			display:block;
-			float:right;
-			font-family:"Entypo";
-			font-size:32px;
-			height:20px;
-			opacity:0;
-			width:20px;
-			text-align:center;
-			
-			@include prefix("transition-duration", 0.3s);
-			@include prefix("transition-property", (opacity, transform));
-			@include prefix("transition-timing-function", ease);
-			@include prefix("transform",rotate(0deg));
-		}
-		
-		&:hover {
-			&:after {
-				opacity:1;
-			}
-		}
-		
-		& + .tier {
-			display:none;
-		}
-		
-		&.active {
-			&:after {
-				opacity:1;
-				@include prefix("transform",rotate(180deg));	
-			}
-			
-			& + .tier {
-				display:block;
-			}
-		}
-		
-	}
-	
-	.tier {
-		border-bottom:solid 1px colors(gray-4);
-		padding:15px;
-		
-		a {
-			border:none;
-			color:colors(gray-1);
-			padding:5px 0;
-			
-			&:after {
-				display:none;
-			}
-			
-			&:hover {
-				color:colors(black);
-			}
-		}
-	}
-}
 
 
 /*  
@@ -1556,176 +1471,8 @@ textarea {
 
 
 
-/* styleGuide Layout */
-.colorSwatchExample {
-	width:100%;
-	margin:0 0 10px 0;
-	border:1px solid colors(gray-5);
-	&.small{height:30px;}
-	&.large{height:100px;}
-}
 
-.blackBox{padding:20px;background-color:colors(black);}
 
-/* BC Colors */
-.swatch-blue{background-color:colors(blue);}
-
-/*  
-	Display Swatches
-	Last Edited: August 19, 2015
-	By: Michael Stevens
-*/
-
-.swatch {
-	height:100px;
-	@include prefix("border-radius",2px 2px 0 0);
-	
-	&.black { background:colors(black); }
-	&.blue { background:colors(blue); }
-	&.red { background:colors(red); }
-	&.orange { background:colors(orange); }
-	&.green { background:colors(green); }
-	&.gray-1 { background:colors(gray-1); }
-	&.gray-2 { background:colors(gray-2); }
-	&.gray-3 { background:colors(gray-3); }
-	&.gray-4 { background:colors(gray-4); }
-}
-
-/*  
-	Product Color Families
-	Last Edited: August 19, 2015
-	By: Michael Stevens
-*/
-
-.facet {
-	height:50px;
-	@include prefix("border-radius",2px 2px 0 0);
-
-	&.beige{background:colorFamily(beige);border:solid 1px colorFamily(beige);}
-	&.black{background:colorFamily(black);border:solid 1px colorFamily(black);}
-	&.blue{background:colorFamily(blue);border:solid 1px colorFamily(blue);}
-	&.brown{background:colorFamily(brown);border:solid 1px colorFamily(brown);}
-	&.gray{background:colorFamily(gray);border:solid 1px colorFamily(gray);}
-	&.green{background:colorFamily(green);border:solid 1px colorFamily(green);}
-	&.orange{background:colorFamily(orange);border:solid 1px colorFamily(orange);}
-	&.pink{background:colorFamily(pink);border:solid 1px colorFamily(pink);}
-	&.purple{background:colorFamily(purple);border:solid 1px colorFamily(purple);}
-	&.red{background:colorFamily(red);border:solid 1px colorFamily(red);}
-	&.white{background:colorFamily(white); border:solid 1px colors(gray-3)}
-	&.yellow{background:colorFamily(yellow);border:solid 1px colorFamily(yellow);}	
-}
-
-/*  
-	Review Star Ratings
-	Last Edited: January 25, 2016
-	By: Michael Stevens
-*/
-.rating {
-	height:20px;
-	position:relative;
-	@include inline-block;
-	width:55px;
-	@include prefix("font-smoothing",antialiased);	
-	@include prefix("text-rendering",optimizeLegibility);	
-	
-	&:before {
-		content:"\2605 \2605 \2605 \2605 \2605";
-		color:colors(black);
-		display:block;
-		font-size:10px;
-		letter-spacing:0.1em;
-		left:0;
-		overflow:hidden;
-		position:absolute;
-		right:0;
-		top:0;
-		white-space: nowrap;
-		z-index:9;
-	}
-	
-	&:after {
-		content:"\2605 \2605 \2605 \2605 \2605";
-		color:colors(gray-4);
-		display:block;
-		font-size:10px;
-		letter-spacing:0.1em;
-		left:0;
-		position:absolute;
-		right:0;
-		top:0;
-		white-space: nowrap;
-	}
-	
-	&[rating="4.5"]{
-		&:before {
-			width:89%;
-		}
-	}
-	
-	&[rating="4"]{
-		&:before {
-			width:80%;
-		}
-	}
-	
-	&[rating="3.5"]{
-		&:before {
-			width:69%;
-		}
-	}
-	
-	&[rating="3"]{
-		&:before {
-			width:60%;
-		}
-	}
-	
-	&[rating="2.5"]{
-		&:before {
-			width:49%;
-		}
-	}
-	
-	&[rating="2"]{
-		&:before {
-			width:40%;
-		}
-	}
-	
-	&[rating="1.5"]{
-		&:before {
-			width:29%;
-		}
-	}
-	
-	&[rating="1"]{
-		&:before {
-			width:20%;
-		}
-	}
-	
-	&[rating="0.5"]{
-		&:before {
-			width:9%;
-		}
-	}
-	
-	&[rating="0"]{
-		opacity:0;
-		visibility:hidden;
-	}
-	
-	&.large {
-		height:25px;
-		width:115px;
-		
-		&:before,
-		&:after {
-			font-size:22px;
-			letter-spacing:0.05em;
-		}
-	}
-}
 
 /*  
 	HTML Code Tag Styles
@@ -1923,6 +1670,7 @@ code {
 	background:colors(white);
 	box-shadow: inset 0 0 0 1px #FFF, inset 49px 0 0 #FFF, inset 50px 0 0 #ededed;
 	border: solid 1px colors(gray-4);
+	clear:both;
 	counter-reset: linenumbers;
 	font-size:14px;
 	margin:20px 0;
@@ -1974,11 +1722,16 @@ code {
 
 .preview {
 	background:colors(white);
-	border: solid 1px colors(gray-4);
+	border:none;
+	clear:both;
 	margin:20px 0;
 	overflow:hidden;
-  	padding-bottom: 56.25%; /* Aspect Ratio 16x9 */
+  	padding-bottom: 56.25%;
 	position:relative;
+	
+	&.xs { padding-bottom: 20%; }
+	&.sm { padding-bottom: 35%; }
+	&.md { padding-bottom: 45%; }
 
 	iframe {
 	  	height:100%;

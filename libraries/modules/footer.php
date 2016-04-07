@@ -14,7 +14,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="gap50"></div>
+	<div class="spc-in-40"></div>
 	<div class="container-lg">
 		<div class="row">
 			<div class="col-lg-3">
@@ -72,7 +72,7 @@
 				</div>
 			</div>
 			
-			<div class="gap50"></div>
+			<div class="spc-in-40"></div>
 		</div>
 	</div>
 	<div class="footer-cap col-lg-12">

@@ -2,7 +2,7 @@
     <div class="container-md">
         <div class="col-lg-3">
             <strong><a href="#">Clothing</a></strong>
-            <a href="mens.html">Jackets</a>
+            <a href="mens">Jackets</a>
             <a href="#">Hoodies &amp; Sweaters</a>
             <a href="#">Shirts</a>
             <a href="#">Pants</a>

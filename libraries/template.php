@@ -3,14 +3,13 @@
 class Template {
     
     private function service($url){
-        $options = array(
-            'http'=>array(
-                'method'=>"GET",
-                'header'=>"User-Agent: Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.102011-10-16 20:23:10\r\n" 
-            )
-        );
-        $context = stream_context_create($options);
-        return json_decode(file_get_contents($url,false,$context));
+		$ch = curl_init($url);
+			  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+			  curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
+			  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$data = curl_exec($ch);
+		curl_close($ch);
+		return json_decode($data);
     }
     
     public function dropdown($item){
@@ -30,7 +29,34 @@ class Template {
 	public function footer() {
 		return $this->compile('modules/footer.php',null);
 	}
-    
+	
+	public function guide($item){
+		// Compose Guide Page
+		$header = $this->compile('guide/header.php',null);
+		$menu = $this->compile('guide/menu.php',null);
+		$aside = $this->compile('guide/aside.php',null);
+		$content = $item->innertext;
+		$main  = $menu;
+		$main .= $header;
+		$main .= '<div class="container-full">';
+		if($item->attr['menu'] == "true"){
+			$main .= '<div class="guide-main">';
+			$main .= $aside;
+			$main .= '<div class="guide-load-container">';
+			$main .= '<div class="guide-load">';
+		}else{
+			$main .= '<div class="guide-main full">';
+			$main .= '<div class="guide-load-container">';
+			$main .= '<div class="guide-load full">';
+		}
+		$main .= $content;
+		$main .= '</div>';
+		$main .= '</div>';
+		$main .= '</div>';
+		$main .= '</div>';
+        return $main;
+    }
+
     public function header(){
         return $this->compile('modules/header.php',null);
     }
@@ -48,6 +74,10 @@ class Template {
         $item = str_replace(">", "&gt;", $item);
         return $item;
     }
+
+	public function globaltext(){
+    	return $this->compile('modules/global-text.php', $data);
+	}
     
     public function group_listing_card($item){
         $data = array(
@@ -61,7 +91,8 @@ class Template {
     public function listing($item){
         $sku = $item->attr['sku'];
         
-        if($item->attr['cache']){
+        if(isset($item->attr['cache'])){
+			error_log("Cache", 0);
             $filename = './cache/'.$sku.'.json';
             if(file_exists($filename)) {
                 $data = get_object_vars(json_decode(file_get_contents($filename)));
@@ -83,6 +114,7 @@ class Template {
                 );
                 fwrite($file,json_encode($data));
                 fclose($file);
+				chmod($filename, 0777);
             }
         }else{
             $json = $this->service("http://api.backcountry.com/v1/products/".$item->attr['sku']."?site=bcs&fields=id,title,skus,brand.name,customerReviews,listPrice,tags");
@@ -100,13 +132,11 @@ class Template {
                 "exclusives"    => '',
             );
         }
-        
-
+		
         
         if($data['listPrice'] == $data['salePrice']){ $data['salePrice'] = ''; }
         if($data['discount'] == '0% off'){ $data['discount'] = ''; }
         //if(isset($json->products[0]->tags)){ $data['exclusives'] = $json->products[0]->tags[0]; }
-        
         return $this->compile('modules/listing.php', $data);
     }
     

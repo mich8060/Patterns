@@ -660,6 +660,6 @@ $(document).ready(function(){
 
 		var initElement = $('.editor')[0];
 		json = $(this).mapDOM(initElement, true);
-		console.log(JSON.stringify(json,0,2));
+		//console.log(JSON.stringify(json,0,2));
 
 });
